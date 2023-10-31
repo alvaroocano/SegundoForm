@@ -269,6 +269,7 @@
             this.Controls.Add(this.titulo);
             this.Name = "FrmNuevoProyecto";
             this.Text = "FrmNuevoProyecto";
+            this.Load += new System.EventHandler(this.FrmNuevoProyecto_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

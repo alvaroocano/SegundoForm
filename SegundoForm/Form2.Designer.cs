@@ -229,20 +229,22 @@
             // altaToolStripMenuItem1
             // 
             this.altaToolStripMenuItem1.Name = "altaToolStripMenuItem1";
-            this.altaToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
+            this.altaToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.altaToolStripMenuItem1.Text = "Alta";
+            this.altaToolStripMenuItem1.Click += new System.EventHandler(this.altaToolStripMenuItem1_Click);
             // 
             // modificaciónToolStripMenuItem1
             // 
             this.modificaciónToolStripMenuItem1.Name = "modificaciónToolStripMenuItem1";
-            this.modificaciónToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
+            this.modificaciónToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.modificaciónToolStripMenuItem1.Text = "Modificación           ";
             // 
             // listadosToolStripMenuItem1
             // 
             this.listadosToolStripMenuItem1.Name = "listadosToolStripMenuItem1";
-            this.listadosToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
+            this.listadosToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.listadosToolStripMenuItem1.Text = "Listados   ";
+            this.listadosToolStripMenuItem1.Click += new System.EventHandler(this.listadosToolStripMenuItem1_Click);
             // 
             // proyectosToolStripMenuItem
             // 
@@ -257,20 +259,20 @@
             // altaToolStripMenuItem2
             // 
             this.altaToolStripMenuItem2.Name = "altaToolStripMenuItem2";
-            this.altaToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.altaToolStripMenuItem2.Size = new System.Drawing.Size(159, 22);
             this.altaToolStripMenuItem2.Text = "Alta";
             this.altaToolStripMenuItem2.Click += new System.EventHandler(this.altaToolStripMenuItem2_Click);
             // 
             // modificaciónToolStripMenuItem2
             // 
             this.modificaciónToolStripMenuItem2.Name = "modificaciónToolStripMenuItem2";
-            this.modificaciónToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.modificaciónToolStripMenuItem2.Size = new System.Drawing.Size(159, 22);
             this.modificaciónToolStripMenuItem2.Text = "Modificación     ";
             // 
             // listadosToolStripMenuItem2
             // 
             this.listadosToolStripMenuItem2.Name = "listadosToolStripMenuItem2";
-            this.listadosToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.listadosToolStripMenuItem2.Size = new System.Drawing.Size(159, 22);
             this.listadosToolStripMenuItem2.Text = "Listados   ";
             this.listadosToolStripMenuItem2.Click += new System.EventHandler(this.listadosToolStripMenuItem2_Click);
             // 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +11,21 @@ using System.Windows.Forms;
 
 namespace SegundoForm
 {
+
+    
     public partial class FrmProyectos : Form
     {
+        
+        public FrmProyectos(string codigo, string descripcion, DateTime fechaInicio, DateTime fechaFin, string estado, double presupuestoInicial, double presupuestoActual, string cambios, int codCliente)
+        {
+            InitializeComponent();
+
+        }
+
         public FrmProyectos()
         {
             InitializeComponent();
+            groupBox.Controls.Clear();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -24,41 +35,37 @@ namespace SegundoForm
 
         void crearEtiqueta(string proyecto, int posicion, int contadorNombre)
         {
-            Label LblProyecto = new System.Windows.Forms.Label();
+            CheckBox LblProyecto = new System.Windows.Forms.CheckBox();
             LblProyecto.AutoSize = true;
             LblProyecto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
             System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point,
             ((byte)(0)));
             LblProyecto.Location = new System.Drawing.Point(75, posicion);
-            LblProyecto.Name = "lblProyecto" + contadorNombre;
+            LblProyecto.Name = "lblProyecto";
             LblProyecto.Size = new System.Drawing.Size(291, 20);
             LblProyecto.TabIndex = 1;
             LblProyecto.Text = proyecto;
+            
             groupBox.Controls.Add(LblProyecto);
         }
 
-        private List<Proyecto> listaProyectos = new List<Proyecto>();
-        private void cargarProyectos()
+        private void cargarProyectos(List<Proyecto> lista)
         {
-            listaProyectos.Add(new Proyecto("1", "Proyecto D", DateTime.Parse("15-1-2000"), DateTime.Parse("15-2-2000"),"sin empezar", 15.8,3.4, "", 1));
-            listaProyectos.Add(new Proyecto("2", "Proyecto C", DateTime.Parse("3-1-2000"), DateTime.Parse("3-2-2000"), "fin", 16.19,2.1, "", 2));
-            listaProyectos.Add(new Proyecto("3", "Proyecto E", DateTime.Parse("2-1-2000"), DateTime.Parse("2-2-2000"), "fin", 1.2,1.1, "", 3));
-            listaProyectos.Add(new Proyecto("4", "Proyecto A", DateTime.Parse("1-1-2000"), DateTime.Parse("1-2-2000"), "en curso", 0.0,0.0, "", 4));
-            listaProyectos.Add(new Proyecto("5", "Proyecto B", DateTime.Parse("12-1-2000"), DateTime.Parse("12-2-2000"), "fin", 5.3,1.9, "", 5));
+            int pos = 0;
+            for (int i = 0; i < lista.Count; i++)
+            {
+                pos = pos + 20;
+                crearEtiqueta(lista[i].Descripcion, pos, i);
+
+            }
+
         }
 
         private void FrmProyectos_Load(object sender, EventArgs e)
         {
-           
-            cargarProyectos();
+            groupBox.Controls.Clear();
 
-            int pos = 0;
-            for (int i = 0; i < listaProyectos.Count; i++)
-            {
-                pos = pos + 20;
-                crearEtiqueta(listaProyectos[i].Descripcion, pos , i);
-                
-            }
+            cargarProyectos(ListaDatos.ListaProyectos);
             
         }
         
@@ -81,7 +88,7 @@ namespace SegundoForm
         private void ordenarProyectosDescripcion()
         {
             groupBox.Controls.Clear();
-            var listaOrdenada = listaProyectos.OrderBy(m => m.Descripcion).ToArray();
+            var listaOrdenada = ListaDatos.ListaProyectos.OrderBy(m => m.Descripcion).ToArray();
             int pos = 0;
             for (int i = 0; i < listaOrdenada.Count(); i++)
             {
@@ -97,7 +104,7 @@ namespace SegundoForm
 
             if (info.Equals("inicio"))
             {
-                var listaOrdenada = listaProyectos.OrderBy(m => m.PresupuestoInicial).ToArray();
+                var listaOrdenada = ListaDatos.ListaProyectos.OrderBy(m => m.PresupuestoInicial).ToArray();
                 int pos = 0;
                 for (int i = 0; i < listaOrdenada.Count(); i++)
                 {
@@ -108,7 +115,7 @@ namespace SegundoForm
             }
             if (info.Equals("fin"))
             {
-                var listaOrdenada = listaProyectos.OrderByDescending(m => m.PresupuestoInicial).ToArray();
+                var listaOrdenada = ListaDatos.ListaProyectos.OrderByDescending(m => m.PresupuestoInicial).ToArray();
                 int pos = 0;
                 for (int i = 0; i < listaOrdenada.Count(); i++)
                 {
@@ -126,7 +133,7 @@ namespace SegundoForm
 
             if (info.Equals("fecha_inicio"))
             {
-                var listaOrdenada = listaProyectos.OrderBy(m => m.FechaInicio).ToArray();
+                var listaOrdenada = ListaDatos.ListaProyectos.OrderBy(m => m.FechaInicio).ToArray();
                 int pos = 0;
                 for (int i = 0; i < listaOrdenada.Count(); i++)
                 {
@@ -137,7 +144,7 @@ namespace SegundoForm
             }
             if (info.Equals("fecha_fin"))
             {
-                var listaOrdenada = listaProyectos.OrderByDescending(m => m.FechaFin).ToArray();
+                var listaOrdenada = ListaDatos.ListaProyectos.OrderByDescending(m => m.FechaFin).ToArray();
                 int pos = 0;
                 for (int i = 0; i < listaOrdenada.Count(); i++)
                 {
@@ -176,5 +183,48 @@ namespace SegundoForm
                     break;
             }
         }
+        private List<CheckBox> ListaChecked = new List<CheckBox>();
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var checkboxes = groupBox.Controls.OfType<CheckBox>().Where(x => x.GetType() == typeof(CheckBox));
+            
+            foreach (var ch in checkboxes)
+            {
+                if (ch.Checked)
+                {
+                    ListaChecked.Add(ch);
+                }
+            }
+
+            foreach (var ch in ListaChecked)
+            {
+                
+                int indice = ListaDatos.ListaProyectos.FindIndex(x => x.Descripcion == ch.Text);
+                if(indice != -1)
+                {
+                    ListaDatos.ListaProyectos.RemoveAt(indice);
+                }
+            }
+
+            groupBox.Controls.Clear();
+            int pos = 0;
+            for (int i = 0; i < ListaDatos.ListaProyectos.Count; i++)
+            {
+                pos = pos + 20;
+                crearEtiqueta(ListaDatos.ListaProyectos[i].Descripcion, pos, i);
+
+            }
+
+           
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+    public static class ListaDatos
+    {
+        public static List<Proyecto> ListaProyectos = new List<Proyecto>();
     }
 }

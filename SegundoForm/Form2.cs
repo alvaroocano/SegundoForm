@@ -29,7 +29,7 @@ namespace SegundoForm
 
         private void listadosToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            FrmProyectos FormProyectos = new FrmProyectos();
+            FrmProyectos FormProyectos =  new FrmProyectos();
             FormProyectos.ShowDialog();
         }
 
@@ -47,6 +47,21 @@ namespace SegundoForm
         {
             FrmNuevoProyecto frmNuevoProyecto = new FrmNuevoProyecto();
             frmNuevoProyecto.ShowDialog();
+
+
+
+        }
+
+        private void listadosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmEmpleados frm = new FrmEmpleados();
+            frm.ShowDialog();
+        }
+
+        private void altaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmNuevoEmpleado frm = new FrmNuevoEmpleado();
+            frm.ShowDialog();
         }
     }
 }

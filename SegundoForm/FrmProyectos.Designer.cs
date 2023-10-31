@@ -33,6 +33,7 @@
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.select = new System.Windows.Forms.ComboBox();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -76,6 +77,7 @@
             this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // select
             // 
@@ -92,6 +94,18 @@
             this.select.TabIndex = 5;
             this.select.SelectedIndexChanged += new System.EventHandler(this.select_SelectedIndexChanged);
             // 
+            // btnEliminar
+            // 
+            this.btnEliminar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Location = new System.Drawing.Point(676, 363);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(112, 48);
+            this.btnEliminar.TabIndex = 6;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FrmProyectos
             // 
             this.AcceptButton = this.btnImprimir;
@@ -99,6 +113,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.select);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnImprimir);
@@ -119,5 +134,6 @@
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.ComboBox select;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }

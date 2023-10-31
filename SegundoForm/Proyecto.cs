@@ -7,7 +7,7 @@ using SegundoForm;
 
 namespace SegundoForm
 {
-    internal class Proyecto
+    public class Proyecto
     {
         private string codigo; 
         private string descripcion ;
