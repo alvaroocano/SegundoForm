@@ -3,15 +3,14 @@
 namespace SegundoForm
 {
 
-    internal class Usuario
+    public class Usuario
     {
         private string id;
         private string clave;
 
         public Usuario()
         {
-            id = "";
-            clave = "";
+
         }
 
         public Usuario(string id, string clave)

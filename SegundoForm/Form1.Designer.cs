@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-
+using System.IO;
+using System.Xml.Serialization;
 
 namespace SegundoForm
 {
@@ -39,6 +40,7 @@ namespace SegundoForm
             this.lblContrasena = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblUsuario
@@ -101,6 +103,17 @@ namespace SegundoForm
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Location = new System.Drawing.Point(354, 338);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(95, 48);
+            this.btnGuardar.TabIndex = 7;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
             // FormReg
             // 
             this.AcceptButton = this.btnAceptar;
@@ -109,6 +122,7 @@ namespace SegundoForm
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.txtContrasena);
@@ -119,21 +133,61 @@ namespace SegundoForm
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormReg_FormClosed);
+            this.Load += new System.EventHandler(this.FormReg_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
-        private List<Usuario> listaUsuarios = new List<Usuario>();
+       
+        private void escribirXML(List<Usuario> lista)
+        {
+            try
+            {
+                using (var writer = new StreamWriter("usuarios.xml"))
+                {
+                    // Do this to avoid the serializer inserting default XML namespaces.
+                    var namespaces = new XmlSerializerNamespaces();
+                    namespaces.Add(string.Empty, string.Empty);
+                    var serializer = new XmlSerializer(lista.GetType());
+                    serializer.Serialize(writer, lista, namespaces);
+                }
+            }
+            catch (Exception e) { }
+        }
+
+        private void leerXML(List<Usuario> lista)
+        {
+            try
+            {
+                string xml = File.ReadAllText("usuarios.xml");
+                using (var reader = new StringReader(xml))
+                {
+                    XmlSerializer serializer = new
+                    XmlSerializer(lista.GetType());
+                    lista = (List<Usuario>)serializer.Deserialize(reader);
+                    System.Console.WriteLine(xml);
+                    
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error leyendo xml " + e.Message);
+            }
+        }
+
+       
+    
 
         private void cargarUsuarios()
         {
-            listaUsuarios.Add(new Usuario("root", "1234"));
-            listaUsuarios.Add(new Usuario("juan", "4321"));
-            listaUsuarios.Add(new Usuario("jaime", "4444"));
-            listaUsuarios.Add(new Usuario("jose", "1111"));
-            listaUsuarios.Add(new Usuario("javier", "2222"));
-            listaUsuarios.Add(new Usuario("jorge", "3333"));
+            ListaDatosUsuarios.listaUsuarios.Add(new Usuario("root", "1234"));
+            ListaDatosUsuarios.listaUsuarios.Add(new Usuario("juan", "4321"));
+            ListaDatosUsuarios.listaUsuarios.Add(new Usuario("jaime", "4444"));
+            ListaDatosUsuarios.listaUsuarios.Add(new Usuario("jose", "1111"));
+            ListaDatosUsuarios.listaUsuarios.Add(new Usuario("javier", "2222"));
+            ListaDatosUsuarios.listaUsuarios.Add(new Usuario("jorge", "3333"));
+
         }
 
 
@@ -141,10 +195,12 @@ namespace SegundoForm
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            cargarUsuarios();
+            
 
-            int posicion = listaUsuarios.FindIndex(x => x.getId() == txtUsuario.Text);
-            if (posicion != -1 && listaUsuarios[posicion].getClave() == txtContrasena.Text)
+            
+
+            int posicion = ListaDatosUsuarios.listaUsuarios.FindIndex(x => x.getId() == txtUsuario.Text);
+            if (posicion != -1 && ListaDatosUsuarios.listaUsuarios[posicion].getClave() == txtContrasena.Text)
             {
                 this.Close();
                 Principal pr = new Principal();
@@ -163,19 +219,8 @@ namespace SegundoForm
                         Application.Exit();
                         contador = 0;
                     }
-
-            
-            
             
             }
-            
-
-            
-
-
-        
-
-        
 
         #endregion
 
@@ -185,6 +230,11 @@ namespace SegundoForm
         private System.Windows.Forms.Label lblContrasena;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAceptar;
+        private Button btnGuardar;
+    }
+    public static class ListaDatosUsuarios
+    {
+        public static List<Usuario> listaUsuarios = new List<Usuario>();
     }
 }
 

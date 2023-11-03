@@ -31,5 +31,17 @@ namespace SegundoForm
         {
             
         }
+
+        private void FormReg_Load(object sender, EventArgs e)
+        {
+            cargarUsuarios();
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            escribirXML(ListaDatosUsuarios.listaUsuarios);
+            leerXML(ListaDatosUsuarios.listaUsuarios);
+
+        }
     }
 }

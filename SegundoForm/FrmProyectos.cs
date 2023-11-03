@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Xml.Serialization;
 
 namespace SegundoForm
 {
@@ -60,15 +62,49 @@ namespace SegundoForm
             }
 
         }
+        private void escribirXML(List<Proyecto> lista)
+        {
+            try
+            {
+                using (var writer = new StreamWriter("proyectos.xml"))
+                {
+                    // Do this to avoid the serializer inserting default XML namespaces.
+                    var namespaces = new XmlSerializerNamespaces();
+                    namespaces.Add(string.Empty, string.Empty);
+                    var serializer = new XmlSerializer(lista.GetType());
+                    serializer.Serialize(writer, lista, namespaces);
+                }
+            }
+            catch (Exception e) { }
+        }
 
+        private void leerXML(List<Proyecto> lista)
+        {
+            try
+            {
+                string xml = File.ReadAllText("proyectos.xml");
+                using (var reader = new StringReader(xml))
+                {
+                    XmlSerializer serializer = new
+                    XmlSerializer(lista.GetType());
+                    lista = (List<Proyecto>)serializer.Deserialize(reader);
+                    System.Console.WriteLine(xml);
+
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error leyendo xml " + e.Message);
+            }
+        }
         private void FrmProyectos_Load(object sender, EventArgs e)
         {
             groupBox.Controls.Clear();
 
             cargarProyectos(ListaDatos.ListaProyectos);
-            
+
         }
-        
+
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
@@ -221,6 +257,12 @@ namespace SegundoForm
         private void btnCancelar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            escribirXML(ListaDatos.ListaProyectos);
+            escribirXML(ListaDatos.ListaProyectos);
         }
     }
     public static class ListaDatos
