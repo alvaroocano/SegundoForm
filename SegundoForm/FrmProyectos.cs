@@ -82,7 +82,7 @@ namespace SegundoForm
         {
             try
             {
-                string xml = File.ReadAllText("proyectos.xml");
+                string xml = File.ReadAllText("proye.xml");
                 using (var reader = new StringReader(xml))
                 {
                     XmlSerializer serializer = new

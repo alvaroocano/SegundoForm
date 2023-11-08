@@ -5,9 +5,12 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+using System.Text.Json;
+using System.IO;
 
 namespace SegundoForm
 {
@@ -17,6 +20,41 @@ namespace SegundoForm
         {
             InitializeComponent();
         }
+
+        private void escribirJSON(List<Empleado> lista)
+        {
+            
+            try
+            {
+                
+                 string jsonString = JsonSerializer.Serialize(lista);
+                 File.WriteAllText("empleados.json", jsonString);
+                
+            }
+            catch (Exception e)
+            {
+                
+            }
+        }
+
+        private List<Empleado> leerJSON(List<Empleado> lista)
+        {
+            try
+            {
+                if (File.Exists("empleados.json"))
+                {
+                    string jsonString = File.ReadAllText("empleados.json");
+                    lista = JsonSerializer.Deserialize<List<Empleado>>(jsonString);
+                    System.Console.WriteLine(jsonString);
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+            return lista;
+        }
+
         void crearEtiqueta(string empleado, string apellido1, string apellido2, int posicion, int contadorNombre)
         {
             Label GrupoLbl = new System.Windows.Forms.Label();
@@ -50,6 +88,9 @@ namespace SegundoForm
             groupBox1.Controls.Clear();
 
             crearEmpleados(ListaDatosEmpleados.ListaEmpleados);
+
+            escribirJSON(ListaDatosEmpleados.ListaEmpleados);
+            leerJSON(ListaDatosEmpleados.ListaEmpleados);
 
         }
 
