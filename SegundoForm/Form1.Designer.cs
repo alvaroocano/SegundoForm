@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.IO;
 using System.Xml.Serialization;
+using SegundoForm.Controladores;
 
 namespace SegundoForm
 {
@@ -138,89 +139,14 @@ namespace SegundoForm
             this.PerformLayout();
 
         }
+        
 
-       
-        private void escribirXML(List<Usuario> lista)
-        {
-            try
-            {
-                using (var writer = new StreamWriter("usuarios.xml"))
-                {
-                    // Do this to avoid the serializer inserting default XML namespaces.
-                    var namespaces = new XmlSerializerNamespaces();
-                    namespaces.Add(string.Empty, string.Empty);
-                    var serializer = new XmlSerializer(lista.GetType());
-                    serializer.Serialize(writer, lista, namespaces);
-                }
-            }
-            catch (Exception e) { }
-        }
-
-        private void leerXML(List<Usuario> lista)
-        {
-            try
-            {
-                string xml = File.ReadAllText("usuarios.xml");
-                using (var reader = new StringReader(xml))
-                {
-                    XmlSerializer serializer = new
-                    XmlSerializer(lista.GetType());
-                    lista = (List<Usuario>)serializer.Deserialize(reader);
-                    System.Console.WriteLine(xml);
-                    
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Error leyendo xml " + e.Message);
-            }
-        }
-
-       
-    
-
-        private void cargarUsuarios()
-        {
-            ListaDatosUsuarios.listaUsuarios.Add(new Usuario("root", "1234"));
-            ListaDatosUsuarios.listaUsuarios.Add(new Usuario("juan", "4321"));
-            ListaDatosUsuarios.listaUsuarios.Add(new Usuario("jaime", "4444"));
-            ListaDatosUsuarios.listaUsuarios.Add(new Usuario("jose", "1111"));
-            ListaDatosUsuarios.listaUsuarios.Add(new Usuario("javier", "2222"));
-            ListaDatosUsuarios.listaUsuarios.Add(new Usuario("jorge", "3333"));
-
-        }
-
-
-        int contador = 0;
-
+        int contador = -1;
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            
-
-            
-
-            int posicion = ListaDatosUsuarios.listaUsuarios.FindIndex(x => x.getId() == txtUsuario.Text);
-            if (posicion != -1 && ListaDatosUsuarios.listaUsuarios[posicion].getClave() == txtContrasena.Text)
-            {
-                this.Close();
-                Principal pr = new Principal();
-                pr.Show();
-            }
-            else
-            {
-                contador++;
-            }
-
-
-
-            if (contador == 3)
-                    {
-                        MessageBox.Show("3 intentos incorrectos");
-                        Application.Exit();
-                        contador = 0;
-                    }
-            
-            }
+            contador++;
+            cf1.validarUsuario(contador, txtUsuario.Text, txtContrasena.Text); 
+        }
 
         #endregion
 
@@ -232,9 +158,6 @@ namespace SegundoForm
         private System.Windows.Forms.Button btnAceptar;
         private Button btnGuardar;
     }
-    public static class ListaDatosUsuarios
-    {
-        public static List<Usuario> listaUsuarios = new List<Usuario>();
-    }
+    
 }
 

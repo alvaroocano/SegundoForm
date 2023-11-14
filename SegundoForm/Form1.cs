@@ -7,16 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SegundoForm.Controladores;
 
 namespace SegundoForm
 {
     public partial class FormReg : Form
     {
+        
         public FormReg()
         {
             InitializeComponent();
         }
-
+        ControladorForm1 cf1 = new ControladorForm1();
         private void lblUsuario_Click(object sender, EventArgs e)
         {
 
@@ -34,13 +36,13 @@ namespace SegundoForm
 
         private void FormReg_Load(object sender, EventArgs e)
         {
-            cargarUsuarios();
+            cf1.cargarUsuarios();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            escribirXML(ListaDatosUsuarios.listaUsuarios);
-            leerXML(ListaDatosUsuarios.listaUsuarios);
+            cf1.escribirXML(ListaDatosUsuarios.listaUsuarios);
+            cf1.leerXML(ListaDatosUsuarios.listaUsuarios);
 
         }
     }
