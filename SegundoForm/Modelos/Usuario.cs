@@ -15,19 +15,12 @@ namespace SegundoForm
 
         public Usuario(string id, string clave)
         {
-            this.id = id;
-            this.clave = clave;
+            this.Id = id;
+            this.Clave = clave;
         }
 
-        public string getId()
-        {
-            return id;
-        }
-
-        public string getClave()
-        {
-            return clave;
-        }
+        public string Id { get => id; set => id = value; }
+        public string Clave { get => clave; set => clave = value; }
     }
 
 }

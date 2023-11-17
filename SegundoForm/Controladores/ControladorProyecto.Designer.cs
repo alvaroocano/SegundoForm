@@ -1,6 +1,6 @@
 ﻿namespace SegundoForm.Controladores
 {
-    partial class ControladorForm1
+    partial class ControladorProyecto
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // ControladorForm1
+            // ControladorProyecto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "ControladorForm1";
-            this.Text = "ControladorForm1";
-            this.Load += new System.EventHandler(this.ControladorForm1_Load);
+            this.Name = "ControladorProyecto";
+            this.Text = "ControladorProyecto";
+            this.Load += new System.EventHandler(this.ControladorProyecto_Load);
             this.ResumeLayout(false);
 
         }

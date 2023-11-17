@@ -74,72 +74,82 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controladores\ControladorForm1.cs">
+    <Compile Include="Controladores\ControladorEmpleado.cs" />
+    <Compile Include="Controladores\ControladorProyecto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Controladores\ControladorForm1.Designer.cs">
-      <DependentUpon>ControladorForm1.cs</DependentUpon>
+    <Compile Include="Controladores\ControladorProyecto.Designer.cs">
+      <DependentUpon>ControladorProyecto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controladores\ControladorUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controladores\ControladorUsuario.Designer.cs">
+      <DependentUpon>ControladorUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Modelos\Empleado.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Vistas\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Vistas\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="Vistas\Form2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
+    <Compile Include="Vistas\Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmEmpleados.cs">
+    <Compile Include="Vistas\FrmEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmEmpleados.Designer.cs">
+    <Compile Include="Vistas\FrmEmpleados.Designer.cs">
       <DependentUpon>FrmEmpleados.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmNuevoEmpleado.cs">
+    <Compile Include="Vistas\FrmNuevoEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmNuevoEmpleado.Designer.cs">
+    <Compile Include="Vistas\FrmNuevoEmpleado.Designer.cs">
       <DependentUpon>FrmNuevoEmpleado.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmNuevoProyecto.cs">
+    <Compile Include="Vistas\FrmNuevoProyecto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmNuevoProyecto.Designer.cs">
+    <Compile Include="Vistas\FrmNuevoProyecto.Designer.cs">
       <DependentUpon>FrmNuevoProyecto.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmProyectos.cs">
+    <Compile Include="Vistas\FrmProyectos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmProyectos.Designer.cs">
+    <Compile Include="Vistas\FrmProyectos.Designer.cs">
       <DependentUpon>FrmProyectos.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Modelos\Proyecto.cs" />
     <Compile Include="Modelos\Usuario.cs" />
-    <EmbeddedResource Include="Controladores\ControladorForm1.resx">
-      <DependentUpon>ControladorForm1.cs</DependentUpon>
+    <EmbeddedResource Include="Controladores\ControladorProyecto.resx">
+      <DependentUpon>ControladorProyecto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="Controladores\ControladorUsuario.resx">
+      <DependentUpon>ControladorUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
+    <EmbeddedResource Include="Vistas\Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmEmpleados.resx">
+    <EmbeddedResource Include="Vistas\FrmEmpleados.resx">
       <DependentUpon>FrmEmpleados.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmNuevoEmpleado.resx">
+    <EmbeddedResource Include="Vistas\FrmNuevoEmpleado.resx">
       <DependentUpon>FrmNuevoEmpleado.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmNuevoProyecto.resx">
+    <EmbeddedResource Include="Vistas\FrmNuevoProyecto.resx">
       <DependentUpon>FrmNuevoProyecto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmProyectos.resx">
+    <EmbeddedResource Include="Vistas\FrmProyectos.resx">
       <DependentUpon>FrmProyectos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -165,8 +175,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Vistas\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

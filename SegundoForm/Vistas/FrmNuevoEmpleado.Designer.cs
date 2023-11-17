@@ -185,6 +185,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(100, 20);
             this.txtNombre.TabIndex = 13;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             // 
             // txtApellido1
             // 
@@ -339,18 +340,18 @@
         private System.Windows.Forms.Label nombre;
         private System.Windows.Forms.Label apellido2;
         private System.Windows.Forms.Label apellido1;
-        private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.TextBox txtApellido1;
-        private System.Windows.Forms.TextBox txtApellido2;
-        private System.Windows.Forms.TextBox txtPuesto;
-        private System.Windows.Forms.TextBox txtTlf;
-        private System.Windows.Forms.TextBox txtCorreo;
-        private System.Windows.Forms.DateTimePicker fechaNacimiento;
-        private System.Windows.Forms.TextBox txtDNI;
-        private System.Windows.Forms.NumericUpDown numericUpDownSS;
-        private System.Windows.Forms.RichTextBox txtComent;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.NumericUpDown numericUpDownId;
+        public System.Windows.Forms.TextBox txtNombre;
+        public System.Windows.Forms.TextBox txtApellido1;
+        public System.Windows.Forms.TextBox txtApellido2;
+        public System.Windows.Forms.TextBox txtPuesto;
+        public System.Windows.Forms.TextBox txtTlf;
+        public System.Windows.Forms.TextBox txtCorreo;
+        public System.Windows.Forms.DateTimePicker fechaNacimiento;
+        public System.Windows.Forms.TextBox txtDNI;
+        public System.Windows.Forms.NumericUpDown numericUpDownSS;
+        public System.Windows.Forms.RichTextBox txtComent;
+        public System.Windows.Forms.NumericUpDown numericUpDownId;
     }
 }

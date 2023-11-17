@@ -13,9 +13,9 @@ using static SegundoForm.FormReg;
 
 namespace SegundoForm.Controladores
 {
-    public partial class ControladorForm1 : Form
+    public partial class ControladorUsuario : Form
     {
-        public ControladorForm1()
+        public ControladorUsuario()
         {
             InitializeComponent();
         }
@@ -74,8 +74,8 @@ namespace SegundoForm.Controladores
 
         public void validarUsuario(int contador, string usuario, string pass)
         {
-            int posicion = ListaDatosUsuarios.listaUsuarios.FindIndex(x => x.getId() == usuario);
-            if (posicion != -1 && ListaDatosUsuarios.listaUsuarios[posicion].getClave() == pass)
+            int posicion = ListaDatosUsuarios.listaUsuarios.FindIndex(x => x.Id == usuario);
+            if (posicion != -1 && ListaDatosUsuarios.listaUsuarios[posicion].Clave == pass)
             {
                 this.Close();
                 Principal pr = new Principal();

@@ -18,7 +18,7 @@ namespace SegundoForm
         {
             InitializeComponent();
         }
-        ControladorForm1 cf1 = new ControladorForm1();
+        ControladorUsuario cf1 = new ControladorUsuario();
         private void lblUsuario_Click(object sender, EventArgs e)
         {
 
