@@ -1,23 +1,66 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SegundoForm.Controladores
 {
     internal class ControladorCliente
     {
-        public void mostrarFileDialog(FileDialog fd)
+
+        public void CargarImagenConTimer(System.Windows.Forms.ProgressBar progressBar, PictureBox pictureBox, FileDialog fd)
         {
-            fd.ShowDialog();
+            var rutaAArchivo = string.Empty;
+            var timer1 = new Timer();
+
+            fd.ShowDialog(); 
+
+            timer1.Enabled = true;
+            timer1.Start();
+            timer1.Interval = 1000;
+            progressBar.Maximum = 10;
+
+            timer1.Tick += (timerSender, timerArgs) =>
+            {
+                if (progressBar.Value != progressBar.Maximum)
+                {
+                    progressBar.Show();
+                    progressBar.Value++;
+                }
+                else
+                {
+                    timer1.Stop();
+                    progressBar.Hide();
+
+                    rutaAArchivo = fd.FileName;
+                    pictureBox.Image = Image.FromFile(rutaAArchivo);
+
+                    string carpetaDestino = ".//imagenes//";
+                    string nombreArchivoSeguro = fd.FileName;
+                    string rutaDestino = Path.Combine(carpetaDestino, nombreArchivoSeguro);
+
+                    if (!File.Exists(rutaDestino))
+                    {
+                        File.Copy(rutaAArchivo, rutaDestino);
+                    }
+                    
+                }
+            };
+
+            
         }
 
-        public void mostrarNombreArchivo(TextBox tb, String nombre)
-        {
-            tb.Text = nombre;
-        }
+
+
+
+
 
         public void AddBoledDate(MonthCalendar monthCalendar)
         {

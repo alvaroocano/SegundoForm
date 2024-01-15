@@ -74,6 +74,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controladores\ControladorCliente.cs" />
     <Compile Include="Controladores\ControladorEmpleado.cs" />
     <Compile Include="Controladores\ControladorProyecto.cs">
       <SubType>Form</SubType>
@@ -105,6 +106,12 @@
     </Compile>
     <Compile Include="Vistas\FrmEmpleados.Designer.cs">
       <DependentUpon>FrmEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\FrmNuevoCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\FrmNuevoCliente.Designer.cs">
+      <DependentUpon>FrmNuevoCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\FrmNuevoEmpleado.cs">
       <SubType>Form</SubType>
@@ -142,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\FrmEmpleados.resx">
       <DependentUpon>FrmEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\FrmNuevoCliente.resx">
+      <DependentUpon>FrmNuevoCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\FrmNuevoEmpleado.resx">
       <DependentUpon>FrmNuevoEmpleado.cs</DependentUpon>

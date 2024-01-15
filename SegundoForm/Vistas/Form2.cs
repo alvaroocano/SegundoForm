@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SegundoForm.Vistas;
 
 namespace SegundoForm
 {
@@ -61,6 +62,12 @@ namespace SegundoForm
         private void altaToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             FrmNuevoEmpleado frm = new FrmNuevoEmpleado();
+            frm.ShowDialog();
+        }
+
+        private void altaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmNuevoCliente frm = new FrmNuevoCliente();
             frm.ShowDialog();
         }
     }

@@ -45,5 +45,10 @@ namespace SegundoForm
             cf1.leerXML(ListaDatosUsuarios.listaUsuarios);
 
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://site.educa.madrid.org/ies.elcanaveral.mostoles/");
+        }
     }
 }

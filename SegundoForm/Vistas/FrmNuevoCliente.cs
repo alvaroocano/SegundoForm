@@ -39,21 +39,9 @@ namespace SegundoForm.Vistas
 
         }
 
-        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            cc.mostrarFileDialog(openFileDialog1);
-        }
-
-        private void openFileDialog1_FileOk_1(object sender, CancelEventArgs e)
-        {
-            progressBar1.Visible = true;
-            progressBar1.Value = 99;
-            cc.mostrarNombreArchivo(rutaArchivo,openFileDialog1.FileName);
+            cc.CargarImagenConTimer(progressBar1, pictureBox1, openFileDialog1);
         }
 
         private void btnColor_Click(object sender, EventArgs e)

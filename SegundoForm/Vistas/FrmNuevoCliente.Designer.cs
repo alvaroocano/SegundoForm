@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("Jefatura");
-            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("Financias");
-            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("Producción");
-            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("RRHH");
-            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("Almacen");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Jefatura");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Financias");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Producción");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("RRHH");
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("Almacen");
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -53,6 +53,8 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnFuente = new System.Windows.Forms.Button();
+            this.btnColor = new System.Windows.Forms.Button();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
@@ -63,11 +65,11 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.Sector = new System.Windows.Forms.DomainUpDown();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
             this.rutaArchivo = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
@@ -77,9 +79,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.btnColor = new System.Windows.Forms.Button();
-            this.btnFuente = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -88,6 +88,7 @@
             this.tabPage1.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -293,6 +294,26 @@
             this.tabPage3.Text = "Datos Privados";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // btnFuente
+            // 
+            this.btnFuente.Location = new System.Drawing.Point(441, 161);
+            this.btnFuente.Name = "btnFuente";
+            this.btnFuente.Size = new System.Drawing.Size(75, 23);
+            this.btnFuente.TabIndex = 6;
+            this.btnFuente.Text = "Fuente";
+            this.btnFuente.UseVisualStyleBackColor = true;
+            this.btnFuente.Click += new System.EventHandler(this.btnFuente_Click);
+            // 
+            // btnColor
+            // 
+            this.btnColor.Location = new System.Drawing.Point(339, 161);
+            this.btnColor.Name = "btnColor";
+            this.btnColor.Size = new System.Drawing.Size(75, 23);
+            this.btnColor.TabIndex = 5;
+            this.btnColor.Text = "Color";
+            this.btnColor.UseVisualStyleBackColor = true;
+            this.btnColor.Click += new System.EventHandler(this.btnColor_Click);
+            // 
             // richTextBox2
             // 
             this.richTextBox2.Location = new System.Drawing.Point(74, 190);
@@ -396,6 +417,22 @@
             this.tabPage1.Text = "Sector ";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // listView1
+            // 
+            this.listView1.HideSelection = false;
+            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4,
+            listViewItem5});
+            this.listView1.Location = new System.Drawing.Point(453, 78);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(121, 97);
+            this.listView1.TabIndex = 3;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.SmallIcon;
+            // 
             // Sector
             // 
             this.Sector.Items.Add("Jefatura");
@@ -426,7 +463,7 @@
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.progressBar1);
-            this.tabPage4.Controls.Add(this.richTextBox3);
+            this.tabPage4.Controls.Add(this.pictureBox1);
             this.tabPage4.Controls.Add(this.rutaArchivo);
             this.tabPage4.Controls.Add(this.button1);
             this.tabPage4.Controls.Add(this.label11);
@@ -446,14 +483,6 @@
             this.progressBar1.Size = new System.Drawing.Size(254, 23);
             this.progressBar1.TabIndex = 4;
             this.progressBar1.Visible = false;
-            // 
-            // richTextBox3
-            // 
-            this.richTextBox3.Location = new System.Drawing.Point(180, 77);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(258, 159);
-            this.richTextBox3.TabIndex = 3;
-            this.richTextBox3.Text = "";
             // 
             // rutaArchivo
             // 
@@ -511,7 +540,6 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk_1);
             // 
             // btnAceptar
             // 
@@ -531,41 +559,13 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // listView1
+            // pictureBox1
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem11,
-            listViewItem12,
-            listViewItem13,
-            listViewItem14,
-            listViewItem15});
-            this.listView1.Location = new System.Drawing.Point(453, 78);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(121, 97);
-            this.listView1.TabIndex = 3;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.SmallIcon;
-            // 
-            // btnColor
-            // 
-            this.btnColor.Location = new System.Drawing.Point(339, 161);
-            this.btnColor.Name = "btnColor";
-            this.btnColor.Size = new System.Drawing.Size(75, 23);
-            this.btnColor.TabIndex = 5;
-            this.btnColor.Text = "Color";
-            this.btnColor.UseVisualStyleBackColor = true;
-            this.btnColor.Click += new System.EventHandler(this.btnColor_Click);
-            // 
-            // btnFuente
-            // 
-            this.btnFuente.Location = new System.Drawing.Point(441, 161);
-            this.btnFuente.Name = "btnFuente";
-            this.btnFuente.Size = new System.Drawing.Size(75, 23);
-            this.btnFuente.TabIndex = 6;
-            this.btnFuente.Text = "Fuente";
-            this.btnFuente.UseVisualStyleBackColor = true;
-            this.btnFuente.Click += new System.EventHandler(this.btnFuente_Click);
+            this.pictureBox1.Location = new System.Drawing.Point(180, 90);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(258, 130);
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
             // 
             // FrmNuevoCliente
             // 
@@ -591,6 +591,7 @@
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             this.tabPage5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -632,7 +633,6 @@
         private System.Windows.Forms.TextBox rutaArchivo;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.RichTextBox richTextBox3;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
@@ -645,5 +645,6 @@
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Button btnFuente;
         private System.Windows.Forms.Button btnColor;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
