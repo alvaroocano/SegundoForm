@@ -53,5 +53,10 @@ namespace SegundoForm.Vistas
         {
             cc.CambiarTipoDeFuente(richTextBox2);
         }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            cc.ValidarDatosGenerales(textBox1, richTextBox1, textBox2, textBox3, textBox4, maskedTextBox2, comboBox1);
+        }
     }
 }

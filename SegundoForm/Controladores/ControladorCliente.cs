@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -115,6 +116,87 @@ namespace SegundoForm.Controladores
                 }
             }
         }
+
+        public void ValidarDatosGenerales(System.Windows.Forms.TextBox nombre, RichTextBox direccion, System.Windows.Forms.TextBox ciudad1, System.Windows.Forms.TextBox ciudad2, System.Windows.Forms.TextBox correo, MaskedTextBox cif, System.Windows.Forms.ComboBox accion)
+        {
+            bool todoBien = true;
+
+            // Validar nombre (textBox1)
+            if (!Regex.IsMatch(nombre.Text, "^[a-zA-Z]{1,15}$"))
+            {
+                nombre.BackColor = System.Drawing.Color.Red;
+                todoBien = false;
+            }
+            else
+            {
+                nombre.BackColor = System.Drawing.Color.White;
+            }
+
+            // Validar dirección (richTextBox1)
+            // No se especifica ninguna restricción específica en el enunciado
+            // Puedes agregar validaciones adicionales si es necesario
+
+            // Validar ciudad1 (textBox2)
+            if (!Regex.IsMatch(ciudad1.Text, "^[a-zA-Z]{1,}$"))
+            {
+                ciudad1.BackColor = System.Drawing.Color.Red;
+                todoBien = false;
+            }
+            else
+            {
+                ciudad1.BackColor = System.Drawing.Color.White;
+            }
+
+            // Validar ciudad2 (textBox3)
+            if (!Regex.IsMatch(ciudad2.Text, "^[a-zA-Z]{1,}$"))
+            {
+                ciudad2.BackColor = System.Drawing.Color.Red;
+                todoBien = false;
+            }
+            else
+            {
+                ciudad2.BackColor = System.Drawing.Color.White;
+            }
+
+            // Validar correo (textBox4)
+            if (!Regex.IsMatch(correo.Text, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
+            {
+                correo.BackColor = System.Drawing.Color.Red;
+                todoBien = false;
+            }
+            else
+            {
+                correo.BackColor = System.Drawing.Color.White;
+            }
+
+            // Validar CIF (maskedTextBox2)
+            if (!Regex.IsMatch(cif.Text, @"^[A-Z]\-\d{8}$"))
+            {
+                cif.BackColor = System.Drawing.Color.Red;
+                todoBien = false;
+            }else
+            {
+                cif.BackColor = System.Drawing.Color.White;
+            }
+
+            // Validar ComboBox (comboBox1)
+            if (accion.SelectedIndex == -1)
+            {
+                accion.BackColor = System.Drawing.Color.Red;
+                todoBien = false;
+            }
+            else
+            {
+                accion.BackColor = System.Drawing.Color.White;
+            }
+
+            // Mostrar MessageBox según el resultado de la validación
+            if (todoBien)
+            {
+                MessageBox.Show("Todos los datos son válidos.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
     }
 
 } 
