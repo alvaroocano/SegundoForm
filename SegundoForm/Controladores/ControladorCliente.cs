@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Media;
+using WMPLib;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -15,6 +17,12 @@ namespace SegundoForm.Controladores
 {
     internal class ControladorCliente
     {
+        private ReproductorMP3 reproductorMP3;
+
+        public ControladorCliente()
+        {
+            reproductorMP3 = new ReproductorMP3();
+        }
 
         public void CargarImagenConTimer(System.Windows.Forms.ProgressBar progressBar, PictureBox pictureBox, FileDialog fd)
         {
@@ -25,7 +33,7 @@ namespace SegundoForm.Controladores
 
             timer1.Enabled = true;
             timer1.Start();
-            timer1.Interval = 1000;
+            timer1.Interval = 300;
             progressBar.Maximum = 10;
 
             timer1.Tick += (timerSender, timerArgs) =>
@@ -43,6 +51,8 @@ namespace SegundoForm.Controladores
                     rutaAArchivo = fd.FileName;
                     pictureBox.Image = Image.FromFile(rutaAArchivo);
 
+                    ReproducirSonido();
+
                     string carpetaDestino = ".//imagenes//";
                     string nombreArchivoSeguro = fd.FileName;
                     string rutaDestino = Path.Combine(carpetaDestino, nombreArchivoSeguro);
@@ -51,6 +61,7 @@ namespace SegundoForm.Controladores
                     {
                         File.Copy(rutaAArchivo, rutaDestino);
                     }
+
                     
                 }
             };
@@ -58,10 +69,14 @@ namespace SegundoForm.Controladores
             
         }
 
+        private void ReproducirSonido()
+        {
+            // Ruta del archivo MP3
+            string rutaArchivoMP3 = "C:/Users/alumno/Desktop/SegundoForm/SegundoForm/Assets/suu.mp3";
 
-
-
-
+            // Reproducir el MP3
+            reproductorMP3.ReproducirMP3(rutaArchivoMP3);
+        }
 
         public void AddBoledDate(MonthCalendar monthCalendar)
         {
@@ -199,5 +214,28 @@ namespace SegundoForm.Controladores
 
     }
 
-} 
+}
+
+public class ReproductorMP3
+{
+    private WindowsMediaPlayer wmp;
+
+    public ReproductorMP3()
+    {
+        wmp = new WindowsMediaPlayer();
+    }
+
+    public void ReproducirMP3(string rutaArchivo)
+    {
+        try
+        {
+            wmp.URL = rutaArchivo;
+            wmp.controls.play();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Error al reproducir el sonido: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+    }
+}
 
