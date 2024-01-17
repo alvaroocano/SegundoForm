@@ -12,6 +12,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Diagnostics;
 
 namespace SegundoForm.Controladores
 {
@@ -72,7 +73,8 @@ namespace SegundoForm.Controladores
         private void ReproducirSonido()
         {
             // Ruta del archivo MP3
-            string rutaArchivoMP3 = "C:/Users/alumno/Desktop/SegundoForm/SegundoForm/Assets/suu.mp3";
+            string directorioEjecucion = AppDomain.CurrentDomain.BaseDirectory;
+            string rutaArchivoMP3 = Path.Combine(directorioEjecucion, "Assets", "suu.mp3");
 
             // Reproducir el MP3
             reproductorMP3.ReproducirMP3(rutaArchivoMP3);
