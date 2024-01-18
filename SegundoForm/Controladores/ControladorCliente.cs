@@ -210,11 +210,46 @@ namespace SegundoForm.Controladores
             // Mostrar MessageBox según el resultado de la validación
             if (todoBien)
             {
-                MessageBox.Show("Todos los datos son válidos.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("Todos los datos son válidos.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        public void ValidarDatosPrivados(System.Windows.Forms.GroupBox groupBox, RichTextBox comentarios)
+        {
+            bool todoBien = true;
+
+            // Validar RadioButtons (groupBox1)
+            if (!groupBox.Controls.OfType<RadioButton>().Any(rb => rb.Checked))
+            {
+                MessageBox.Show("Se debe seleccionar el tipo de cliente");
+                todoBien = false;
+            }
+            else
+            {
+                groupBox.BackColor = System.Drawing.Color.White;
+            }
+
+            // Validar comentarios (richTextBox2)
+            if (string.IsNullOrWhiteSpace(comentarios.Text))
+            {
+                MessageBox.Show("La caja de comentarios no puede estar vacía");
+                todoBien = false;
+            }
+            else
+            {
+                comentarios.BackColor = System.Drawing.Color.White;
+            }
+
+            // Mostrar MessageBox según el resultado de la validación
+            if (todoBien)
+            {
+                //MessageBox.Show("Todos los datos privados son válidos.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
     }
+
+    
 
 }
 
