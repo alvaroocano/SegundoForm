@@ -70,5 +70,21 @@ namespace SegundoForm
             FrmNuevoCliente frm = new FrmNuevoCliente();
             frm.ShowDialog();
         }
+
+        private void logsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+            folderBrowserDialog.SelectedPath = ".";
+
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                Logs logs = new Logs();
+                //propiedad pública del formulario log
+                logs.directorio = folderBrowserDialog.SelectedPath;
+
+                logs.Show();
+            }
+
+        }
     }
 }
