@@ -65,5 +65,10 @@ namespace SegundoForm.Vistas
         {
             cc.exportarComentarios(richTextBox2);
         }
+
+        private void btnExportar_Click_1(object sender, EventArgs e)
+        {
+            cc.exportarComentarios(richTextBox2);
+        }
     }
 }

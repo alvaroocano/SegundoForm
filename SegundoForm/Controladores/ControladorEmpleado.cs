@@ -209,11 +209,12 @@ namespace SegundoForm.Controladores
                 frm.Close();
             }
         }
-        public static class ListaDatosEmpleados
-        {
-            public static List<Empleado> ListaEmpleados = new List<Empleado>();
-        }
+        
     }
-    
+    public static class ListaDatosEmpleados
+    {
+        public static List<Empleado> ListaEmpleados = new List<Empleado>();
+    }
+
 }
 

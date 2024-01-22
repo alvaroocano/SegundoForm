@@ -75,6 +75,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnExportar = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -293,6 +294,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.btnExportar);
             this.tabPage3.Controls.Add(this.btnFuente);
             this.tabPage3.Controls.Add(this.btnColor);
             this.tabPage3.Controls.Add(this.richTextBox2);
@@ -603,6 +605,17 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
+            // btnExportar
+            // 
+            this.btnExportar.Location = new System.Drawing.Point(712, 198);
+            this.btnExportar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.Size = new System.Drawing.Size(100, 28);
+            this.btnExportar.TabIndex = 8;
+            this.btnExportar.Text = "Exportar";
+            this.btnExportar.UseVisualStyleBackColor = true;
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click_1);
+            // 
             // FrmNuevoCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -683,5 +696,6 @@
         private System.Windows.Forms.Button btnFuente;
         private System.Windows.Forms.Button btnColor;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnExportar;
     }
 }
