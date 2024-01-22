@@ -32,6 +32,7 @@ namespace SegundoForm.Vistas
             dateTimePicker1.MinDate = DateTime.Now;
             monthCalendar1.MinDate = DateTime.Now;
             cc.AddBoledDate(monthCalendar1);
+            Sector.Text = Sector.Items[0].ToString();
         }
 
         private void tabPage4_Click(object sender, EventArgs e)
@@ -58,6 +59,11 @@ namespace SegundoForm.Vistas
         {
             cc.ValidarDatosGenerales(textBox1, richTextBox1, textBox2, textBox3, textBox4, maskedTextBox2, comboBox1);
             cc.ValidarDatosPrivados(groupBox1, richTextBox2);
+        }
+
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+            cc.exportarComentarios(richTextBox2);
         }
     }
 }

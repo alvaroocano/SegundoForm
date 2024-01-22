@@ -247,6 +247,27 @@ namespace SegundoForm.Controladores
             }
         }
 
+        public void exportarComentarios(RichTextBox rtb)
+        {
+            var rutaAArchivo = string.Empty;
+            using (SaveFileDialog saveFileDialog1 = new SaveFileDialog())
+            {
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        rtb.SaveFile(saveFileDialog1.FileName);
+                        MessageBox.Show("Datos exportados");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Datos NO exportados");
+                    }
+                }
+            }
+
+        }
+
     }
 
     
