@@ -75,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controladores\ControladorCliente.cs" />
+    <Compile Include="Controladores\ControladorComponentes.cs" />
     <Compile Include="Controladores\ControladorEmpleado.cs" />
     <Compile Include="Controladores\ControladorProyecto.cs">
       <SubType>Form</SubType>

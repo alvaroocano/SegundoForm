@@ -86,5 +86,11 @@ namespace SegundoForm
             }
 
         }
+
+        private void componentesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmComponentesProyectos form = new FrmComponentesProyectos();
+            form.ShowDialog();
+        }
     }
 }

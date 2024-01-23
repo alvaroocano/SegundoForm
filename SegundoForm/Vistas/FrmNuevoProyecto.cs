@@ -110,10 +110,8 @@ namespace SegundoForm
         ControladorEmpleado ce = new ControladorEmpleado();
         private void FrmNuevoProyecto_Load(object sender, EventArgs e)
         {
-            for(int i = 0; i<ListaDatosEmpleados.ListaEmpleados.Count; i++)
-            {
-                comboBox1.Items.Add(ListaDatosEmpleados.ListaEmpleados[i].Nombre.ToString() + " " + ListaDatosEmpleados.ListaEmpleados[i].Apellido1.ToString());
-            }
+            
         }
+
     }
 }
