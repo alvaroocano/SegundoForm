@@ -21,40 +21,37 @@ namespace SegundoForm.Controladores
         {
         }
 
-        
+
 
         public void escribirJSON(List<Empleado> lista)
         {
-
             try
             {
-
+                // Serializar la lista y escribir en el archivo JSON
                 string jsonString = JsonSerializer.Serialize(lista);
                 File.WriteAllText("empleados.json", jsonString);
-
             }
             catch (Exception e)
             {
-
+                // Manejar excepciones si es necesario
             }
         }
 
-        public List<Empleado> leerJSON(List<Empleado> lista)
+        public List<Empleado> leerJSON()
         {
             try
             {
                 if (File.Exists("empleados.json"))
                 {
                     string jsonString = File.ReadAllText("empleados.json");
-                    lista = JsonSerializer.Deserialize<List<Empleado>>(jsonString);
-                    System.Console.WriteLine(jsonString);
+                    return JsonSerializer.Deserialize<List<Empleado>>(jsonString);
                 }
             }
             catch (Exception e)
             {
-
+                // Manejar excepciones si es necesario
             }
-            return lista;
+            return new List<Empleado>();
         }
 
         public void crearEtiqueta(string empleado, string apellido1, string apellido2, int posicion, int contadorNombre, System.Windows.Forms.GroupBox g)
@@ -89,10 +86,12 @@ namespace SegundoForm.Controladores
         {
             g.Controls.Clear();
 
-            crearEmpleados(ListaDatosEmpleados.ListaEmpleados, g);
+            List<Empleado> lista = new List<Empleado>();
+            lista = leerJSON();
+            crearEmpleados(lista, g);
 
             escribirJSON(ListaDatosEmpleados.ListaEmpleados);
-            leerJSON(ListaDatosEmpleados.ListaEmpleados);
+            leerJSON();
         }
 
         public void filtrar(System.Windows.Forms.GroupBox g, System.Windows.Forms.TextBox t)
@@ -202,9 +201,14 @@ namespace SegundoForm.Controladores
             {
                 Empleado e1 = new Empleado(id.Value, txtDNI.Text, txtNombre.Text, txtApellido1.Text, txtApellido2.Text, txtPuesto.Text, txtTlf.Text, txtCorreo.Text, fecha.Value, ss.Value, txtComent.Text);
                 ListaDatosEmpleados.ListaEmpleados.Add(e1);
+                escribirJSON(ListaDatosEmpleados.ListaEmpleados);
 
-                FrmEmpleados f1 = new FrmEmpleados();
-                f1.ShowDialog();
+                // Mostrar el formulario FrmEmpleados solo si no está abierto
+                if (Application.OpenForms["FrmEmpleados"] == null)
+                {
+                    FrmEmpleados f1 = new FrmEmpleados();
+                    f1.ShowDialog();
+                }
 
                 frm.Close();
             }
