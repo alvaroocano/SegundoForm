@@ -10,7 +10,7 @@ namespace SegundoForm
     {
 
         
-        private readonly decimal id;
+        private int id;
         private string dni;
         private string nombre;
         private string apellido1;
@@ -25,7 +25,7 @@ namespace SegundoForm
 
         public Empleado() { }
 
-        public Empleado(decimal id, string dni, string nombre, string apellido1, string apellido2, string puesto, string tlf, string correo, DateTime fecha_nacimiento, decimal ss, string comentario) {
+        public Empleado(int id, string dni, string nombre, string apellido1, string apellido2, string puesto, string tlf, string correo, DateTime fecha_nacimiento, decimal ss, string comentario) {
             this.id = id;
             this.dni = dni;
             this.nombre = nombre;
@@ -57,7 +57,7 @@ namespace SegundoForm
             this.comentario = comentarioNuevo;
         }
 
-        public decimal Id { get => id;  }
+        public int Id { get => id; set => id = value; }
         public string Dni { get => dni; set => dni = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public string Apellido1 { get => apellido1; set => apellido1 = value; }

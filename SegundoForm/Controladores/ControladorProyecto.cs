@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using System.Xml.Serialization;
+using System.Text.Json;
 
 namespace SegundoForm.Controladores
 {
@@ -25,7 +26,39 @@ namespace SegundoForm.Controladores
 
         }
 
-        
+        public void escribirJSON(List<Proyecto> lista)
+        {
+            try
+            {
+                // Serializar la lista actualizada de proyectos y escribir en el archivo JSON
+                string jsonString = JsonSerializer.Serialize(lista);
+                File.WriteAllText("proyectos.json", jsonString);
+            }
+            catch (Exception e)
+            {
+                // Manejar excepciones si es necesario
+            }
+        }
+
+
+        public List<Proyecto> leerJSON()
+        {
+            try
+            {
+                if (File.Exists("proyectos.json"))
+                {
+                    string jsonString = File.ReadAllText("proyectos.json");
+                    return JsonSerializer.Deserialize<List<Proyecto>>(jsonString);
+                }
+            }
+            catch (Exception e)
+            {
+                // Manejar excepciones si es necesario
+            }
+            return new List<Proyecto>();
+        }
+
+
         void crearEtiqueta(string proyecto, int posicion, int contadorNombre, System.Windows.Forms.GroupBox g)
         {
             System.Windows.Forms.CheckBox LblProyecto = new System.Windows.Forms.CheckBox();

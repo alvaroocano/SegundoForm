@@ -19,35 +19,14 @@ namespace SegundoForm.Vistas
             InitializeComponent();
         }
 
-        ControladorEmpleado ce = new ControladorEmpleado();
 
+        ControladorComponentes cc = new ControladorComponentes();
         private void FrmComponentesProyectos_Load(object sender, EventArgs e)
         {
-            List<Empleado> lista = new List<Empleado>();
-            lista = ce.leerJSON();
-
-            for (int i = 0; i < lista.Count; i++)
-            {
-                string employeeName = $"{lista[i].Id} {lista[i].Nombre} {lista[i].Apellido1}";
-                listBox1.Items.Add(employeeName);
-            }
+            cc.cargarEmpleados(listBox1);
+            cc.cargarProyectos(proyectos);
         }
 
-        private void listBox1_MouseClick(object sender, MouseEventArgs e)
-        {
-            // Obtener el índice seleccionado
-            int selectedIndex = listBox1.SelectedIndex;
-
-            // Validar si hay un ítem seleccionado
-            if (selectedIndex >= 0 && selectedIndex < listBox1.Items.Count)
-            {
-                // Obtener el nombre del empleado
-                string employeeName = listBox1.Items[selectedIndex].ToString();
-
-                // Mostrar detalles o realizar otras acciones según sea necesario
-                 MessageBox.Show($"Empleado seleccionado: {employeeName}");
-            }
-        }
     }
 }
 

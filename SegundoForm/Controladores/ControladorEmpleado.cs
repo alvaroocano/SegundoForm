@@ -199,7 +199,7 @@ namespace SegundoForm.Controladores
 
             if (toBien)
             {
-                Empleado e1 = new Empleado(id.Value, txtDNI.Text, txtNombre.Text, txtApellido1.Text, txtApellido2.Text, txtPuesto.Text, txtTlf.Text, txtCorreo.Text, fecha.Value, ss.Value, txtComent.Text);
+                Empleado e1 = new Empleado((int)id.Value, txtDNI.Text, txtNombre.Text, txtApellido1.Text, txtApellido2.Text, txtPuesto.Text, txtTlf.Text, txtCorreo.Text, fecha.Value, ss.Value, txtComent.Text);
                 ListaDatosEmpleados.ListaEmpleados.Add(e1);
                 escribirJSON(ListaDatosEmpleados.ListaEmpleados);
 

@@ -43,7 +43,9 @@ namespace SegundoForm
         {
             groupBox.Controls.Clear();
 
-            cp.cargarProyectos(ListaDatos.ListaProyectos, groupBox);
+            List<Proyecto> lista = new List<Proyecto>();
+            lista = cp.leerJSON();
+            cp.cargarProyectos(lista, groupBox);
 
         }
 

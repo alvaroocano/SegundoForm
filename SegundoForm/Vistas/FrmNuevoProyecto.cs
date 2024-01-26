@@ -21,6 +21,8 @@ namespace SegundoForm
             
         }
 
+        ControladorProyecto cp = new ControladorProyecto();
+
         private void label3_Click(object sender, EventArgs e)
         {
 
@@ -92,7 +94,7 @@ namespace SegundoForm
                 IniFechaFin = txtFechaFin.Value;
                 IniEstado = txtEstado.Text;
                 IniPresupuestoInicio = double.Parse(txtPresupuestoInicio.Text);
-                IniPresupuestoFin = double.Parse(txtPresupuestoInicio.Text);
+                IniPresupuestoFin = double.Parse(txtPresupuestoFin.Text);
                 IniCambios = txtCambios.Text;
                 IniCodCliente = int.Parse(txtCodCliente.Text);
 
@@ -101,6 +103,7 @@ namespace SegundoForm
                 Proyecto FormProyectosNuevo = new Proyecto(IniCodigo, IniDescripcion, IniFechaInicio, IniFechaFin, IniEstado, IniPresupuestoInicio, IniPresupuestoFin, IniCambios, IniCodCliente);
                 ListaDatos.ListaProyectos.Add(FormProyectosNuevo);
 
+                cp.escribirJSON(ListaDatos.ListaProyectos);
                 FrmProyectos f = new FrmProyectos();
                 f.ShowDialog();
 
