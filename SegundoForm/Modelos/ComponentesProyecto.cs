@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SegundoForm.Modelos
 {
-    internal class ComponentesProyecto
+    public class ComponentesProyecto
     {
         private string codigoProyecto;
         private string IdEmpleado;
@@ -15,6 +15,15 @@ namespace SegundoForm.Modelos
         private decimal extras;
 
         public ComponentesProyecto(){}
+
+        public ComponentesProyecto(string codigoProyecto, string idEmpleado, string puesto, float porcentajeDeDedicacion, decimal extras)
+        {
+            this.codigoProyecto = codigoProyecto;
+            IdEmpleado = idEmpleado;
+            this.puesto = puesto;
+            this.porcentajeDeDedicacion = porcentajeDeDedicacion;
+            this.extras = extras;
+        }
 
         public string CodigoProyecto { get => codigoProyecto; set => codigoProyecto = value; }
         public string IdEmpleado1 { get => IdEmpleado; set => IdEmpleado = value; }

@@ -89,8 +89,19 @@ namespace SegundoForm
 
         private void componentesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmComponentesProyectos form = new FrmComponentesProyectos();
-            form.ShowDialog();
+            
+            if (Application.OpenForms["FrmComponentesProyectos"] == null)
+            {
+                // El formulario no está abierto, así que lo abrimos
+                FrmComponentesProyectos formulario = new FrmComponentesProyectos();
+                formulario.Show();
+            }
+            else
+            {
+                // El formulario ya está abierto, puedes realizar alguna acción o simplemente no hacer nada
+                // Por ejemplo, puedes traer el formulario al frente
+                Application.OpenForms["FrmComponentesProyectos"].BringToFront();
+            }
         }
     }
 }

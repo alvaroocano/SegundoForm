@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SegundoForm.Controladores;
+using SegundoForm.Modelos;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SegundoForm.Vistas
@@ -27,7 +28,13 @@ namespace SegundoForm.Vistas
             cc.cargarProyectos(proyectos);
         }
 
+        private void btnAnhadir_Click(object sender, EventArgs e)
+        {
+            cc.crearComponente(proyectos, listBox1, puesto, numericUpDown1, numericUpDown2);
+        }
     }
+
+    
 }
 
 
