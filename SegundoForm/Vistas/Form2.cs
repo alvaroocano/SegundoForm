@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using SegundoForm.Vistas;
 
 namespace SegundoForm
@@ -98,10 +99,31 @@ namespace SegundoForm
             }
             else
             {
-                // El formulario ya está abierto, puedes realizar alguna acción o simplemente no hacer nada
-                // Por ejemplo, puedes traer el formulario al frente
                 Application.OpenForms["FrmComponentesProyectos"].BringToFront();
             }
         }
+
+        private void impresionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //inicializa el printpreviewdialog
+            FrmImpresion frm = new FrmImpresion();
+            //Set the size, location, and name.
+            frm.ClientSize = new System.Drawing.Size(400,
+            300);
+            frm.Location = new System.Drawing.Point(29, 29);
+            frm.Name = "PrintPreviewDialog1";
+            frm.MinimumSize = new System.Drawing.Size(375,250);
+            // Establece el documento a imprimir
+            frm.Document.DocumentName = "Previsualización";
+
+            // Muestra el printpreviewdialog
+            PrintPreviewDialog printPreviewDialog1 = new PrintPreviewDialog();
+            printPreviewDialog1.Document = frm.Document;
+
+            // Muestra el diálogo
+            printPreviewDialog1.ShowDialog();
+        }
+
+
     }
 }
