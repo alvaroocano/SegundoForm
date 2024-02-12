@@ -65,6 +65,7 @@
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.impresionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.proyectosBBDDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -260,7 +261,8 @@
             this.altaToolStripMenuItem2,
             this.modificaciónToolStripMenuItem2,
             this.listadosToolStripMenuItem2,
-            this.componentesToolStripMenuItem});
+            this.componentesToolStripMenuItem,
+            this.proyectosBBDDToolStripMenuItem});
             this.proyectosToolStripMenuItem.Name = "proyectosToolStripMenuItem";
             this.proyectosToolStripMenuItem.Size = new System.Drawing.Size(115, 24);
             this.proyectosToolStripMenuItem.Text = "Proyectos       ";
@@ -268,27 +270,27 @@
             // altaToolStripMenuItem2
             // 
             this.altaToolStripMenuItem2.Name = "altaToolStripMenuItem2";
-            this.altaToolStripMenuItem2.Size = new System.Drawing.Size(199, 26);
+            this.altaToolStripMenuItem2.Size = new System.Drawing.Size(224, 26);
             this.altaToolStripMenuItem2.Text = "Alta";
             this.altaToolStripMenuItem2.Click += new System.EventHandler(this.altaToolStripMenuItem2_Click);
             // 
             // modificaciónToolStripMenuItem2
             // 
             this.modificaciónToolStripMenuItem2.Name = "modificaciónToolStripMenuItem2";
-            this.modificaciónToolStripMenuItem2.Size = new System.Drawing.Size(199, 26);
+            this.modificaciónToolStripMenuItem2.Size = new System.Drawing.Size(224, 26);
             this.modificaciónToolStripMenuItem2.Text = "Modificación     ";
             // 
             // listadosToolStripMenuItem2
             // 
             this.listadosToolStripMenuItem2.Name = "listadosToolStripMenuItem2";
-            this.listadosToolStripMenuItem2.Size = new System.Drawing.Size(199, 26);
+            this.listadosToolStripMenuItem2.Size = new System.Drawing.Size(224, 26);
             this.listadosToolStripMenuItem2.Text = "Listados   ";
             this.listadosToolStripMenuItem2.Click += new System.EventHandler(this.listadosToolStripMenuItem2_Click);
             // 
             // componentesToolStripMenuItem
             // 
             this.componentesToolStripMenuItem.Name = "componentesToolStripMenuItem";
-            this.componentesToolStripMenuItem.Size = new System.Drawing.Size(199, 26);
+            this.componentesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.componentesToolStripMenuItem.Text = "Componentes";
             this.componentesToolStripMenuItem.Click += new System.EventHandler(this.componentesToolStripMenuItem_Click);
             // 
@@ -349,6 +351,13 @@
             this.impresionToolStripMenuItem.Text = "Impresion";
             this.impresionToolStripMenuItem.Click += new System.EventHandler(this.impresionToolStripMenuItem_Click);
             // 
+            // proyectosBBDDToolStripMenuItem
+            // 
+            this.proyectosBBDDToolStripMenuItem.Name = "proyectosBBDDToolStripMenuItem";
+            this.proyectosBBDDToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.proyectosBBDDToolStripMenuItem.Text = "ProyectosBBDD";
+            this.proyectosBBDDToolStripMenuItem.Click += new System.EventHandler(this.proyectosBBDDToolStripMenuItem_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -356,7 +365,7 @@
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Principal";
             this.Text = "Principal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -408,5 +417,6 @@
         private System.Windows.Forms.ToolStripMenuItem logsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem componentesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem impresionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem proyectosBBDDToolStripMenuItem;
     }
 }

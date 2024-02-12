@@ -124,6 +124,10 @@ namespace SegundoForm
             printPreviewDialog1.ShowDialog();
         }
 
-
+        private void proyectosBBDDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmNuevoProyectoBBDD frm = new FrmNuevoProyectoBBDD();
+            frm.ShowDialog();
+        }
     }
 }
