@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="baseDatosDataSet" targetNamespace="http://tempuri.org/baseDatosDataSet.xsd" xmlns:mstns="http://tempuri.org/baseDatosDataSet.xsd" xmlns="http://tempuri.org/baseDatosDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="BaseDatosDataSet" targetNamespace="http://tempuri.org/BaseDatosDataSet.xsd" xmlns:mstns="http://tempuri.org/BaseDatosDataSet.xsd" xmlns="http://tempuri.org/BaseDatosDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="baseDatosConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="baseDatosConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SegundoForm.Properties.Settings.GlobalReference.Default.baseDatosConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BaseDatosConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BaseDatosConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SegundoForm.Properties.Settings.GlobalReference.Default.BaseDatosConnectionString1" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables />
         <Sources />
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="baseDatosDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="baseDatosDataSet" msprop:Generator_DataSetName="baseDatosDataSet">
+  <xs:element name="BaseDatosDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="BaseDatosDataSet" msprop:Generator_DataSetName="BaseDatosDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded" />
     </xs:complexType>

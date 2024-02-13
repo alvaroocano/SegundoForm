@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.baseDatosDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.baseDatosDataSet = new SegundoForm.baseDatosDataSet();
+            this.baseDatosDataSet = new SegundoForm.Database1DataSet();
             this.baseDatosDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.baseDatosDataSetBindingSource)).BeginInit();
@@ -86,7 +86,7 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource baseDatosDataSetBindingSource;
-        private baseDatosDataSet baseDatosDataSet;
+        private Database1DataSet baseDatosDataSet;
         private System.Windows.Forms.BindingSource baseDatosDataSetBindingSource1;
     }
 }

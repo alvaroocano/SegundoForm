@@ -23,7 +23,7 @@ namespace SegundoForm.Vistas
         private string construirCadenaConexión()
         {
             // Directorio del archivo de base de datos relativo al directorio de ejecución
-            string databaseFileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "baseDatos.mdf");
+            string databaseFileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Database1.mdf");
             // Cadena de conexión
             string connectionString = $"Data Source=(LocalDB)\\MSSQLLocalDB; AttachDbFilename ={databaseFileName}; Integrated Security = True";
             // Usar la cadena de conexión
