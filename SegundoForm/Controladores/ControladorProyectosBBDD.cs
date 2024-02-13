@@ -15,7 +15,7 @@ namespace SegundoForm.Controladores
         private string construirCadenaConexión()
         {
             // Directorio del archivo de base de datos relativo al directorio de ejecución
-            string databaseFileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Database1.mdf");
+            string databaseFileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "baseDatos.mdf");
             // Cadena de conexión
             string connectionString = $"Data Source=(LocalDB)\\MSSQLLocalDB; AttachDbFilename ={databaseFileName}; Integrated Security = True";
             // Usar la cadena de conexión
@@ -29,7 +29,7 @@ namespace SegundoForm.Controladores
             // Ver método construirCadenaConexión más arriba
             string connectionString = construirCadenaConexión();
             // Query de inserción
-            string query = "INSERT INTO Proyectos (Descripcion, FechaInicio, FechaFin, Estado, PresupuestoInicial, PresupuestoActual, Cambios, CodigoCliente) VALUES (@Descripcion, @FechaInicio, @FechaFin, @Estado, @PresupuestoInicial, @PresupuestoActual, @Cambios, @CodigoCliente)";
+            string query = "INSERT INTO Proyectos (descripcion, fechaInicio, fechaFin, estado, presupuestoInicial, presupuestoActual, cambios, codCliente) VALUES (@Descripcion, @FechaInicio, @FechaFin, @Estado, @PresupuestoInicial, @PresupuestoActual, @Cambios, @CodigoCliente)";
             // Valores para los parámetros
             string descripcion = desc.Text;
             string fechaInicio = Convert.ToString(fechaI.Value);
@@ -55,10 +55,8 @@ namespace SegundoForm.Controladores
                     command.Parameters.AddWithValue("@FechaInicio", fechaInicio);
                     command.Parameters.AddWithValue("@FechaFin", fechaFin);
                     command.Parameters.AddWithValue("@Estado", estado);
-                    command.Parameters.AddWithValue("@PresupuestoInicial",
-                   presupuestoInicial);
-                    command.Parameters.AddWithValue("@PresupuestoActual",
-                   presupuestoFinal);
+                    command.Parameters.AddWithValue("@PresupuestoInicial", presupuestoInicial);
+                    command.Parameters.AddWithValue("@PresupuestoActual", presupuestoFinal);
                     command.Parameters.AddWithValue("@Cambios", cambios);
                     command.Parameters.AddWithValue("@CodigoCliente", codigoCliente);
                     try

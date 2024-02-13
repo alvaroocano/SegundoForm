@@ -129,5 +129,11 @@ namespace SegundoForm
             FrmNuevoProyectoBBDD frm = new FrmNuevoProyectoBBDD();
             frm.ShowDialog();
         }
+
+        private void cargarProyectosBBDDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CargarProyectosBBDD cpb = new CargarProyectosBBDD();
+            cpb.ShowDialog();
+        }
     }
 }
