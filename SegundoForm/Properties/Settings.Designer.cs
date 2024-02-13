@@ -48,8 +48,8 @@ namespace SegundoForm.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Vistas\\BaseDa" +
-            "tos.mdf;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\BaseDatos.mdf" +
+            ";Integrated Security=True")]
         public string BaseDatosConnectionString1 {
             get {
                 return ((string)(this["BaseDatosConnectionString1"]));

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace SegundoForm.Controladores
         private string construirCadenaConexión()
         {
             // Directorio del archivo de base de datos relativo al directorio de ejecución
-            string databaseFileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "baseDatos.mdf");
+            string databaseFileName = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\BaseDatos.mdf"));
             // Cadena de conexión
             string connectionString = $"Data Source=(LocalDB)\\MSSQLLocalDB; AttachDbFilename ={databaseFileName}; Integrated Security = True";
             // Usar la cadena de conexión
@@ -73,5 +74,31 @@ namespace SegundoForm.Controladores
             }
 
         }
+
+        public DataTable obtenerProyectos()
+        {
+            DataTable dtProyectos = new DataTable();
+
+            // Cadena de conexión a la base de datos
+            string connectionString = construirCadenaConexión();
+            // Query para seleccionar todos los registros de la tabla Proyectos
+            string query = "SELECT * FROM Proyectos";
+
+            // Crear la conexión
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                // Abrir la conexión
+                connection.Open();
+                // Crear un adaptador de datos y ejecutar la consulta
+                using (SqlDataAdapter adapter = new SqlDataAdapter(query, connection))
+                {
+                    // Llenar el DataTable con los resultados de la consulta
+                    adapter.Fill(dtProyectos);
+                }
+            }
+
+            return dtProyectos;
+        }
+
     }
 }

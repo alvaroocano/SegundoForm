@@ -294,10 +294,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Vistas\BaseDatos.mdf">
+    <Content Include="BaseDatos.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Vistas\BaseDatos_log.ldf">
+    <Content Include="BaseDatos_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>BaseDatos.mdf</DependentUpon>
     </Content>

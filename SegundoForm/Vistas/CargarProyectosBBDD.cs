@@ -20,24 +20,30 @@ namespace SegundoForm.Vistas
             InitializeComponent();
         }
 
-        private string construirCadenaConexión()
-        {
-            // Directorio del archivo de base de datos relativo al directorio de ejecución
-            string databaseFileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Database1.mdf");
-            // Cadena de conexión
-            string connectionString = $"Data Source=(LocalDB)\\MSSQLLocalDB; AttachDbFilename ={databaseFileName}; Integrated Security = True";
-            // Usar la cadena de conexión
-            MessageBox.Show("Cadena de conexión: " + connectionString);
-            return connectionString;
-        }
+        ControladorProyectosBBDD cpb = new ControladorProyectosBBDD();
 
         private void CargarProyectosBBDD_Load(object sender, EventArgs e)
         {
-            string consulta = "select * from Proyectos";
-            SqlDataAdapter adaptador = new SqlDataAdapter(consulta, construirCadenaConexión());
-            DataTable dt = new DataTable();
-            adaptador.Fill(dt);
-            dataGridView1.DataSource = dt;
+            DataTable dtProyectos = cpb.obtenerProyectos();
+
+            if (dtProyectos.Rows.Count > 0)
+            {
+                // Hay datos disponibles, enlaza el DataGridView con el DataTable
+                dataGridView1.DataSource = dtProyectos;
+                MessageBox.Show("Hay datos");
+            }
+            else
+            {
+                // No hay datos disponibles, muestra un mensaje informativo
+                Label lblMensaje = new Label();
+                lblMensaje.Text = "No hay datos disponibles.";
+                lblMensaje.TextAlign = ContentAlignment.MiddleCenter;
+                lblMensaje.AutoSize = false;
+                lblMensaje.Dock = DockStyle.Fill;
+                Controls.Add(lblMensaje);
+            }
+
+
         }
     }
 }
