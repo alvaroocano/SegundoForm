@@ -24,13 +24,16 @@ namespace SegundoForm.Vistas
 
         private void CargarProyectosBBDD_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'baseDatosDataSet1.Proyectos' Puede moverla o quitarla según sea necesario.
+            this.proyectosTableAdapter.Fill(this.baseDatosDataSet1.Proyectos);
+            // TODO: esta línea de código carga datos en la tabla 'baseDatosDataSet1.Proyectos' Puede moverla o quitarla según sea necesario.
+            this.proyectosTableAdapter.Fill(this.baseDatosDataSet1.Proyectos);
             DataTable dtProyectos = cpb.obtenerProyectos();
 
             if (dtProyectos.Rows.Count > 0)
             {
                 // Hay datos disponibles, enlaza el DataGridView con el DataTable
                 dataGridView1.DataSource = dtProyectos;
-                MessageBox.Show("Hay datos");
             }
             else
             {
@@ -45,5 +48,12 @@ namespace SegundoForm.Vistas
 
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            cpb.eliminarProyectosSeleccionados(dataGridView1);
+        }
+
+        
     }
 }

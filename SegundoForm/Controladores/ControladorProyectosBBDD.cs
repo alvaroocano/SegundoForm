@@ -20,7 +20,6 @@ namespace SegundoForm.Controladores
             // Cadena de conexión
             string connectionString = $"Data Source=(LocalDB)\\MSSQLLocalDB; AttachDbFilename ={databaseFileName}; Integrated Security = True";
             // Usar la cadena de conexión
-            MessageBox.Show("Cadena de conexión: " + connectionString);
             return connectionString;
         }
 
@@ -35,10 +34,10 @@ namespace SegundoForm.Controladores
             string descripcion = desc.Text;
             string fechaInicio = Convert.ToString(fechaI.Value);
             string fechaFin = Convert.ToString(fechaF.Value);
-            string estado = Convert.ToString(est.ValueMember);
+            string estado = Convert.ToString(est.SelectedItem);
             double presupuestoInicial = Convert.ToDouble(presupI.Text);
             double presupuestoFinal = Convert.ToDouble(presupF.Text);
-            string cambios = Convert.ToString(camb.ValueMember);
+            string cambios = Convert.ToString(camb.SelectedItem);
             string codigoCliente = client.Text;
 
             // Crear la conexión
@@ -99,6 +98,53 @@ namespace SegundoForm.Controladores
 
             return dtProyectos;
         }
+
+        public void eliminarProyectosSeleccionados(DataGridView dataGridView)
+        {
+            // Lista para almacenar los IDs de los proyectos seleccionados
+            List<int> idsProyectosAEliminar = new List<int>();
+
+            // Iterar sobre las filas del DataGridView
+            foreach (DataGridViewRow row in dataGridView.Rows)
+            {
+                // Verificar si la fila está seleccionada y el checkbox de "Eliminar" está marcado
+                DataGridViewCheckBoxCell checkbox = row.Cells["Eliminar"] as DataGridViewCheckBoxCell;
+                if (checkbox != null && Convert.ToBoolean(checkbox.Value))
+                {
+                    // Obtener el ID del proyecto de la fila actual
+                    int idProyecto = Convert.ToInt32(row.Cells["codigoDataGridViewTextBoxColumn"].Value);
+                    // Agregar el ID a la lista de IDs de proyectos a eliminar
+                    idsProyectosAEliminar.Add(idProyecto);
+                }
+            }
+
+            // Verificar si hay proyectos seleccionados para eliminar
+            if (idsProyectosAEliminar.Count > 0)
+            {
+                // Cadena de conexión a la base de datos
+                string connectionString = construirCadenaConexión();
+
+                // Query para eliminar los proyectos seleccionados
+                string query = "DELETE FROM Proyectos WHERE codigo IN (" + string.Join(",", idsProyectosAEliminar) + ")";
+
+                // Crear la conexión y ejecutar la consulta de eliminación
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        int registrosEliminados = command.ExecuteNonQuery();
+                        MessageBox.Show($"Se eliminaron correctamente {registrosEliminados} proyectos.");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se han seleccionado proyectos para eliminar.");
+            }
+        }
+
+
 
     }
 }

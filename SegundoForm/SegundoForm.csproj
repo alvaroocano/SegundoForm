@@ -97,6 +97,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BaseDatosDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="baseDatosDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>baseDatosDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Controladores\ControladorCliente.cs" />
     <Compile Include="Controladores\ControladorComponentes.cs" />
     <Compile Include="Controladores\ControladorEmpleado.cs" />
@@ -252,6 +257,17 @@
     </None>
     <None Include="BaseDatosDataSet.xss">
       <DependentUpon>BaseDatosDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="baseDatosDataSet1.xsc">
+      <DependentUpon>baseDatosDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="baseDatosDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>baseDatosDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="baseDatosDataSet1.xss">
+      <DependentUpon>baseDatosDataSet1.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
