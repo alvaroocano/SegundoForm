@@ -126,6 +126,12 @@
     <Compile Include="Vistas\CargarProyectosBBDD.Designer.cs">
       <DependentUpon>CargarProyectosBBDD.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\EjemploMDI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\EjemploMDI.Designer.cs">
+      <DependentUpon>EjemploMDI.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,12 @@
     </Compile>
     <Compile Include="Vistas\Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\FormularioHijo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\FormularioHijo.Designer.cs">
+      <DependentUpon>FormularioHijo.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\FrmComponentesProyectos.cs">
       <SubType>Form</SubType>
@@ -204,6 +216,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\CargarProyectosBBDD.resx">
       <DependentUpon>CargarProyectosBBDD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\EjemploMDI.resx">
+      <DependentUpon>EjemploMDI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -283,9 +298,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <COMReference Include="WMPLib">
       <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>

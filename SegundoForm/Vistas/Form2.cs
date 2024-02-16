@@ -135,5 +135,24 @@ namespace SegundoForm
             CargarProyectosBBDD cpb = new CargarProyectosBBDD();
             cpb.ShowDialog();
         }
+
+        private void ejemploMDIToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EjemploMDI emdi = new EjemploMDI();
+            emdi.ShowDialog();
+        }
+
+        private void splitContainer1_Panel2_Resize(object sender, EventArgs e)
+        {
+            pictureBox1.Location = new Point(
+                (splitContainer1.Panel1.Width - pictureBox1.Width) / 2,
+                (splitContainer1.Panel1.Height - pictureBox1.Height) / 2
+            );
+
+            pictureBox2.Location = new Point(
+                (splitContainer1.Panel2.Width - pictureBox2.Width) / 2,
+                (splitContainer1.Panel2.Height - pictureBox2.Height) / 2
+            );
+        }
     }
 }

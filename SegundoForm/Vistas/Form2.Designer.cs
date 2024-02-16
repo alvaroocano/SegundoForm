@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,6 +59,7 @@
             this.listadosToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.componentesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proyectosBBDDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cargarProyectosBBDDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.organizarHorizontalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.organizarVerticalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,8 +68,17 @@
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.impresionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cargarProyectosBBDDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ejemploMDIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -82,7 +93,8 @@
             this.ventanaToolStripMenuItem,
             this.ayudaToolStripMenuItem,
             this.logsToolStripMenuItem,
-            this.impresionToolStripMenuItem});
+            this.impresionToolStripMenuItem,
+            this.ejemploMDIToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
@@ -303,6 +315,13 @@
             this.proyectosBBDDToolStripMenuItem.Text = "ProyectosBBDD";
             this.proyectosBBDDToolStripMenuItem.Click += new System.EventHandler(this.proyectosBBDDToolStripMenuItem_Click);
             // 
+            // cargarProyectosBBDDToolStripMenuItem
+            // 
+            this.cargarProyectosBBDDToolStripMenuItem.Name = "cargarProyectosBBDDToolStripMenuItem";
+            this.cargarProyectosBBDDToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.cargarProyectosBBDDToolStripMenuItem.Text = "CargarProyectosBBDD";
+            this.cargarProyectosBBDDToolStripMenuItem.Click += new System.EventHandler(this.cargarProyectosBBDDToolStripMenuItem_Click);
+            // 
             // ventanaToolStripMenuItem
             // 
             this.ventanaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -360,18 +379,59 @@
             this.impresionToolStripMenuItem.Text = "Impresion";
             this.impresionToolStripMenuItem.Click += new System.EventHandler(this.impresionToolStripMenuItem_Click);
             // 
-            // cargarProyectosBBDDToolStripMenuItem
+            // ejemploMDIToolStripMenuItem
             // 
-            this.cargarProyectosBBDDToolStripMenuItem.Name = "cargarProyectosBBDDToolStripMenuItem";
-            this.cargarProyectosBBDDToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.cargarProyectosBBDDToolStripMenuItem.Text = "CargarProyectosBBDD";
-            this.cargarProyectosBBDDToolStripMenuItem.Click += new System.EventHandler(this.cargarProyectosBBDDToolStripMenuItem_Click);
+            this.ejemploMDIToolStripMenuItem.Name = "ejemploMDIToolStripMenuItem";
+            this.ejemploMDIToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
+            this.ejemploMDIToolStripMenuItem.Text = "EjemploMDI";
+            this.ejemploMDIToolStripMenuItem.Click += new System.EventHandler(this.ejemploMDIToolStripMenuItem_Click);
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 24);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.pictureBox1);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.pictureBox2);
+            this.splitContainer1.Panel2.Resize += new System.EventHandler(this.splitContainer1_Panel2_Resize);
+            this.splitContainer1.Size = new System.Drawing.Size(800, 426);
+            this.splitContainer1.SplitterDistance = 397;
+            this.splitContainer1.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(33, 12);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(333, 402);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(33, 12);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(333, 402);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
             // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Principal";
@@ -381,6 +441,12 @@
             this.Load += new System.EventHandler(this.Principal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -427,5 +493,9 @@
         private System.Windows.Forms.ToolStripMenuItem impresionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem proyectosBBDDToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cargarProyectosBBDDToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ejemploMDIToolStripMenuItem;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
