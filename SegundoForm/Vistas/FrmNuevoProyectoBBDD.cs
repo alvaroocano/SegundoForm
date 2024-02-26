@@ -30,7 +30,7 @@ namespace SegundoForm
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            cp.insertarProyecto(txtDescripcion, txtFechaInicio, txtFechaFin, comboBox1, txtPresupuestoInicio, txtPresupuestoFin, comboBox2, txtCodCliente);
+            cp.insertarProyecto(txtDescripcion, txtFechaInicio, txtFechaFin, comboBox1, txtPresupuestoInicio, txtPresupuestoFin, comboBox2, txtCodCliente, chBoxTerminado);
             
         }
 

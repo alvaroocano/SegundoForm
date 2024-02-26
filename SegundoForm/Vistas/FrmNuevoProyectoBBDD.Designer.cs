@@ -47,6 +47,8 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.chBoxTerminado = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // titulo
@@ -152,7 +154,7 @@
             // txtFechaInicio
             // 
             this.txtFechaInicio.Location = new System.Drawing.Point(465, 174);
-            this.txtFechaInicio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtFechaInicio.Margin = new System.Windows.Forms.Padding(4);
             this.txtFechaInicio.Name = "txtFechaInicio";
             this.txtFechaInicio.Size = new System.Drawing.Size(265, 22);
             this.txtFechaInicio.TabIndex = 10;
@@ -160,7 +162,7 @@
             // txtFechaFin
             // 
             this.txtFechaFin.Location = new System.Drawing.Point(465, 218);
-            this.txtFechaFin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtFechaFin.Margin = new System.Windows.Forms.Padding(4);
             this.txtFechaFin.MinDate = new System.DateTime(2023, 10, 17, 12, 40, 44, 0);
             this.txtFechaFin.Name = "txtFechaFin";
             this.txtFechaFin.Size = new System.Drawing.Size(265, 22);
@@ -170,7 +172,7 @@
             // txtDescripcion
             // 
             this.txtDescripcion.Location = new System.Drawing.Point(465, 134);
-            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(265, 22);
             this.txtDescripcion.TabIndex = 13;
@@ -178,7 +180,7 @@
             // txtPresupuestoInicio
             // 
             this.txtPresupuestoInicio.Location = new System.Drawing.Point(465, 314);
-            this.txtPresupuestoInicio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPresupuestoInicio.Margin = new System.Windows.Forms.Padding(4);
             this.txtPresupuestoInicio.Name = "txtPresupuestoInicio";
             this.txtPresupuestoInicio.Size = new System.Drawing.Size(265, 22);
             this.txtPresupuestoInicio.TabIndex = 15;
@@ -186,7 +188,7 @@
             // txtPresupuestoFin
             // 
             this.txtPresupuestoFin.Location = new System.Drawing.Point(465, 357);
-            this.txtPresupuestoFin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPresupuestoFin.Margin = new System.Windows.Forms.Padding(4);
             this.txtPresupuestoFin.Name = "txtPresupuestoFin";
             this.txtPresupuestoFin.Size = new System.Drawing.Size(265, 22);
             this.txtPresupuestoFin.TabIndex = 16;
@@ -194,7 +196,7 @@
             // txtCodCliente
             // 
             this.txtCodCliente.Location = new System.Drawing.Point(465, 433);
-            this.txtCodCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCodCliente.Margin = new System.Windows.Forms.Padding(4);
             this.txtCodCliente.Name = "txtCodCliente";
             this.txtCodCliente.Size = new System.Drawing.Size(265, 22);
             this.txtCodCliente.TabIndex = 18;
@@ -203,7 +205,7 @@
             // 
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.Location = new System.Drawing.Point(392, 486);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(141, 53);
             this.btnAceptar.TabIndex = 19;
@@ -216,7 +218,7 @@
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Location = new System.Drawing.Point(619, 486);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(141, 53);
             this.btnCancelar.TabIndex = 20;
@@ -246,6 +248,26 @@
             this.comboBox2.Size = new System.Drawing.Size(265, 24);
             this.comboBox2.TabIndex = 22;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(767, 429);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(106, 25);
+            this.label7.TabIndex = 23;
+            this.label7.Text = "Terminado";
+            // 
+            // chBoxTerminado
+            // 
+            this.chBoxTerminado.AutoSize = true;
+            this.chBoxTerminado.Location = new System.Drawing.Point(880, 434);
+            this.chBoxTerminado.Name = "chBoxTerminado";
+            this.chBoxTerminado.Size = new System.Drawing.Size(18, 17);
+            this.chBoxTerminado.TabIndex = 24;
+            this.chBoxTerminado.UseVisualStyleBackColor = true;
+            // 
             // FrmNuevoProyectoBBDD
             // 
             this.AcceptButton = this.btnAceptar;
@@ -253,6 +275,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.chBoxTerminado);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btnCancelar);
@@ -272,7 +296,7 @@
             this.Controls.Add(this.fecha_inicio);
             this.Controls.Add(this.descripcion);
             this.Controls.Add(this.titulo);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmNuevoProyectoBBDD";
             this.Text = "FrmNuevoProyecto";
             this.Load += new System.EventHandler(this.FrmNuevoProyecto_Load);
@@ -302,5 +326,7 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.CheckBox chBoxTerminado;
     }
 }

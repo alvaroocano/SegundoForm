@@ -23,13 +23,13 @@ namespace SegundoForm.Controladores
             return connectionString;
         }
 
-        public void insertarProyecto(TextBox desc, DateTimePicker fechaI, DateTimePicker fechaF, ComboBox est, TextBox presupI, TextBox presupF, ComboBox camb, TextBox client)
+        public void insertarProyecto(TextBox desc, DateTimePicker fechaI, DateTimePicker fechaF, ComboBox est, TextBox presupI, TextBox presupF, ComboBox camb, TextBox client, CheckBox terminado)
         {
             // Cadena de conexión a la base de datos
             // Ver método construirCadenaConexión más arriba
             string connectionString = construirCadenaConexión();
             // Query de inserción
-            string query = "INSERT INTO Proyectos (descripcion, fechaInicio, fechaFin, estado, presupuestoInicial, presupuestoActual, cambios, codCliente) VALUES (@Descripcion, @FechaInicio, @FechaFin, @Estado, @PresupuestoInicial, @PresupuestoActual, @Cambios, @CodigoCliente)";
+            string query = "INSERT INTO Proyectos (descripcion, fechaInicio, fechaFin, estado, presupuestoInicial, presupuestoActual, cambios, codCliente, terminado) VALUES (@Descripcion, @FechaInicio, @FechaFin, @Estado, @PresupuestoInicial, @PresupuestoActual, @Cambios, @CodigoCliente, @Terminado)";
             // Valores para los parámetros
             string descripcion = desc.Text;
             string fechaInicio = Convert.ToString(fechaI.Value);
@@ -39,6 +39,7 @@ namespace SegundoForm.Controladores
             double presupuestoFinal = Convert.ToDouble(presupF.Text);
             string cambios = Convert.ToString(camb.SelectedItem);
             string codigoCliente = client.Text;
+            bool term = terminado.Checked;
 
             // Crear la conexión
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -59,6 +60,7 @@ namespace SegundoForm.Controladores
                     command.Parameters.AddWithValue("@PresupuestoActual", presupuestoFinal);
                     command.Parameters.AddWithValue("@Cambios", cambios);
                     command.Parameters.AddWithValue("@CodigoCliente", codigoCliente);
+                    command.Parameters.AddWithValue("@Terminado", term);
                     try
                     {
                         // Ejecutar la consulta de inserción

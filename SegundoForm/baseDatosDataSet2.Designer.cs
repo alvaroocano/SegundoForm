@@ -20,9 +20,9 @@ namespace SegundoForm {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("baseDatosDataSet1")]
+    [global::System.Xml.Serialization.XmlRootAttribute("baseDatosDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class baseDatosDataSet1 : global::System.Data.DataSet {
+    public partial class baseDatosDataSet : global::System.Data.DataSet {
         
         private ProyectosDataTable tableProyectos;
         
@@ -30,7 +30,7 @@ namespace SegundoForm {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public baseDatosDataSet1() {
+        public baseDatosDataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace SegundoForm {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected baseDatosDataSet1(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected baseDatosDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -127,7 +127,7 @@ namespace SegundoForm {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            baseDatosDataSet1 cln = ((baseDatosDataSet1)(base.Clone()));
+            baseDatosDataSet cln = ((baseDatosDataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -199,9 +199,9 @@ namespace SegundoForm {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "baseDatosDataSet1";
+            this.DataSetName = "baseDatosDataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/baseDatosDataSet1.xsd";
+            this.Namespace = "http://tempuri.org/baseDatosDataSet2.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableProyectos = new ProyectosDataTable();
@@ -225,7 +225,7 @@ namespace SegundoForm {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            baseDatosDataSet1 ds = new baseDatosDataSet1();
+            baseDatosDataSet ds = new baseDatosDataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -296,6 +296,8 @@ namespace SegundoForm {
             private global::System.Data.DataColumn columncambios;
             
             private global::System.Data.DataColumn columncodCliente;
+            
+            private global::System.Data.DataColumn columnterminado;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -404,6 +406,14 @@ namespace SegundoForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn terminadoColumn {
+                get {
+                    return this.columnterminado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -439,7 +449,7 @@ namespace SegundoForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ProyectosRow AddProyectosRow(string descripcion, string fechaInicio, string fechaFin, string estado, double presupuestoInicial, double presupuestoActual, string cambios, int codCliente) {
+            public ProyectosRow AddProyectosRow(string descripcion, string fechaInicio, string fechaFin, string estado, double presupuestoInicial, double presupuestoActual, string cambios, int codCliente, bool terminado) {
                 ProyectosRow rowProyectosRow = ((ProyectosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -450,7 +460,8 @@ namespace SegundoForm {
                         presupuestoInicial,
                         presupuestoActual,
                         cambios,
-                        codCliente};
+                        codCliente,
+                        terminado};
                 rowProyectosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowProyectosRow);
                 return rowProyectosRow;
@@ -489,6 +500,7 @@ namespace SegundoForm {
                 this.columnpresupuestoActual = base.Columns["presupuestoActual"];
                 this.columncambios = base.Columns["cambios"];
                 this.columncodCliente = base.Columns["codCliente"];
+                this.columnterminado = base.Columns["terminado"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -512,6 +524,8 @@ namespace SegundoForm {
                 base.Columns.Add(this.columncambios);
                 this.columncodCliente = new global::System.Data.DataColumn("codCliente", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncodCliente);
+                this.columnterminado = new global::System.Data.DataColumn("terminado", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnterminado);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columncodigo}, true));
                 this.columncodigo.AutoIncrement = true;
@@ -523,8 +537,8 @@ namespace SegundoForm {
                 this.columndescripcion.MaxLength = 50;
                 this.columnfechaInicio.MaxLength = 50;
                 this.columnfechaFin.MaxLength = 2147483647;
-                this.columnestado.MaxLength = 50;
-                this.columncambios.MaxLength = 50;
+                this.columnestado.MaxLength = 2147483647;
+                this.columncambios.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -592,7 +606,7 @@ namespace SegundoForm {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                baseDatosDataSet1 ds = new baseDatosDataSet1();
+                baseDatosDataSet ds = new baseDatosDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -806,6 +820,22 @@ namespace SegundoForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool terminado {
+                get {
+                    try {
+                        return ((bool)(this[this.tableProyectos.terminadoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'terminado\' de la tabla \'Proyectos\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProyectos.terminadoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsdescripcionNull() {
                 return this.IsNull(this.tableProyectos.descripcionColumn);
             }
@@ -899,6 +929,18 @@ namespace SegundoForm {
             public void SetcodClienteNull() {
                 this[this.tableProyectos.codClienteColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsterminadoNull() {
+                return this.IsNull(this.tableProyectos.terminadoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetterminadoNull() {
+                this[this.tableProyectos.terminadoColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -936,7 +978,7 @@ namespace SegundoForm {
         }
     }
 }
-namespace SegundoForm.baseDatosDataSet1TableAdapters {
+namespace SegundoForm.baseDatosDataSetTableAdapters {
     
     
     /// <summary>
@@ -1069,67 +1111,66 @@ namespace SegundoForm.baseDatosDataSet1TableAdapters {
             tableMapping.ColumnMappings.Add("presupuestoActual", "presupuestoActual");
             tableMapping.ColumnMappings.Add("cambios", "cambios");
             tableMapping.ColumnMappings.Add("codCliente", "codCliente");
+            tableMapping.ColumnMappings.Add("terminado", "terminado");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Proyectos] WHERE (([codigo] = @Original_codigo) AND ((@IsNull_descripcion = 1 AND [descripcion] IS NULL) OR ([descripcion] = @Original_descripcion)) AND ((@IsNull_fechaInicio = 1 AND [fechaInicio] IS NULL) OR ([fechaInicio] = @Original_fechaInicio)) AND ((@IsNull_estado = 1 AND [estado] IS NULL) OR ([estado] = @Original_estado)) AND ((@IsNull_presupuestoInicial = 1 AND [presupuestoInicial] IS NULL) OR ([presupuestoInicial] = @Original_presupuestoInicial)) AND ((@IsNull_presupuestoActual = 1 AND [presupuestoActual] IS NULL) OR ([presupuestoActual] = @Original_presupuestoActual)) AND ((@IsNull_cambios = 1 AND [cambios] IS NULL) OR ([cambios] = @Original_cambios)) AND ((@IsNull_codCliente = 1 AND [codCliente] IS NULL) OR ([codCliente] = @Original_codCliente)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Proyectos] WHERE (([codigo] = @Original_codigo) AND ((@IsNull_descripcion = 1 AND [descripcion] IS NULL) OR ([descripcion] = @Original_descripcion)) AND ((@IsNull_fechaInicio = 1 AND [fechaInicio] IS NULL) OR ([fechaInicio] = @Original_fechaInicio)) AND ((@IsNull_presupuestoInicial = 1 AND [presupuestoInicial] IS NULL) OR ([presupuestoInicial] = @Original_presupuestoInicial)) AND ((@IsNull_presupuestoActual = 1 AND [presupuestoActual] IS NULL) OR ([presupuestoActual] = @Original_presupuestoActual)) AND ((@IsNull_codCliente = 1 AND [codCliente] IS NULL) OR ([codCliente] = @Original_codCliente)) AND ((@IsNull_terminado = 1 AND [terminado] IS NULL) OR ([terminado] = @Original_terminado)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_codigo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "codigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_descripcion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_descripcion", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_fechaInicio", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fechaInicio", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fechaInicio", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fechaInicio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_estado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "estado", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_estado", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "estado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_presupuestoInicial", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "presupuestoInicial", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_presupuestoInicial", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "presupuestoInicial", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_presupuestoActual", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "presupuestoActual", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_presupuestoActual", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "presupuestoActual", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_cambios", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cambios", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_cambios", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cambios", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_codCliente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "codCliente", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_codCliente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "codCliente", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_terminado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "terminado", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_terminado", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "terminado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Proyectos] ([descripcion], [fechaInicio], [fechaFin], [estado], [presupuestoInicial], [presupuestoActual], [cambios], [codCliente]) VALUES (@descripcion, @fechaInicio, @fechaFin, @estado, @presupuestoInicial, @presupuestoActual, @cambios, @codCliente);
-SELECT codigo, descripcion, fechaInicio, fechaFin, estado, presupuestoInicial, presupuestoActual, cambios, codCliente FROM Proyectos WHERE (codigo = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Proyectos] ([descripcion], [fechaInicio], [fechaFin], [estado], [presupuestoInicial], [presupuestoActual], [cambios], [codCliente], [terminado]) VALUES (@descripcion, @fechaInicio, @fechaFin, @estado, @presupuestoInicial, @presupuestoActual, @cambios, @codCliente, @terminado);
+SELECT codigo, descripcion, fechaInicio, fechaFin, estado, presupuestoInicial, presupuestoActual, cambios, codCliente, terminado FROM Proyectos WHERE (codigo = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@descripcion", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaInicio", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fechaInicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaFin", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fechaFin", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@estado", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "estado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@estado", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "estado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@presupuestoInicial", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "presupuestoInicial", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@presupuestoActual", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "presupuestoActual", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cambios", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cambios", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cambios", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cambios", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codCliente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "codCliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@terminado", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "terminado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Proyectos] SET [descripcion] = @descripcion, [fechaInicio] = @fechaInicio, [fechaFin] = @fechaFin, [estado] = @estado, [presupuestoInicial] = @presupuestoInicial, [presupuestoActual] = @presupuestoActual, [cambios] = @cambios, [codCliente] = @codCliente WHERE (([codigo] = @Original_codigo) AND ((@IsNull_descripcion = 1 AND [descripcion] IS NULL) OR ([descripcion] = @Original_descripcion)) AND ((@IsNull_fechaInicio = 1 AND [fechaInicio] IS NULL) OR ([fechaInicio] = @Original_fechaInicio)) AND ((@IsNull_estado = 1 AND [estado] IS NULL) OR ([estado] = @Original_estado)) AND ((@IsNull_presupuestoInicial = 1 AND [presupuestoInicial] IS NULL) OR ([presupuestoInicial] = @Original_presupuestoInicial)) AND ((@IsNull_presupuestoActual = 1 AND [presupuestoActual] IS NULL) OR ([presupuestoActual] = @Original_presupuestoActual)) AND ((@IsNull_cambios = 1 AND [cambios] IS NULL) OR ([cambios] = @Original_cambios)) AND ((@IsNull_codCliente = 1 AND [codCliente] IS NULL) OR ([codCliente] = @Original_codCliente)));
-SELECT codigo, descripcion, fechaInicio, fechaFin, estado, presupuestoInicial, presupuestoActual, cambios, codCliente FROM Proyectos WHERE (codigo = @codigo)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Proyectos] SET [descripcion] = @descripcion, [fechaInicio] = @fechaInicio, [fechaFin] = @fechaFin, [estado] = @estado, [presupuestoInicial] = @presupuestoInicial, [presupuestoActual] = @presupuestoActual, [cambios] = @cambios, [codCliente] = @codCliente, [terminado] = @terminado WHERE (([codigo] = @Original_codigo) AND ((@IsNull_descripcion = 1 AND [descripcion] IS NULL) OR ([descripcion] = @Original_descripcion)) AND ((@IsNull_fechaInicio = 1 AND [fechaInicio] IS NULL) OR ([fechaInicio] = @Original_fechaInicio)) AND ((@IsNull_presupuestoInicial = 1 AND [presupuestoInicial] IS NULL) OR ([presupuestoInicial] = @Original_presupuestoInicial)) AND ((@IsNull_presupuestoActual = 1 AND [presupuestoActual] IS NULL) OR ([presupuestoActual] = @Original_presupuestoActual)) AND ((@IsNull_codCliente = 1 AND [codCliente] IS NULL) OR ([codCliente] = @Original_codCliente)) AND ((@IsNull_terminado = 1 AND [terminado] IS NULL) OR ([terminado] = @Original_terminado)));
+SELECT codigo, descripcion, fechaInicio, fechaFin, estado, presupuestoInicial, presupuestoActual, cambios, codCliente, terminado FROM Proyectos WHERE (codigo = @codigo)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@descripcion", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaInicio", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fechaInicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaFin", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fechaFin", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@estado", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "estado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@estado", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "estado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@presupuestoInicial", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "presupuestoInicial", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@presupuestoActual", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "presupuestoActual", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cambios", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cambios", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cambios", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cambios", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codCliente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "codCliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@terminado", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "terminado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_codigo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "codigo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_descripcion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_descripcion", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_fechaInicio", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fechaInicio", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fechaInicio", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fechaInicio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_estado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "estado", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_estado", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "estado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_presupuestoInicial", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "presupuestoInicial", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_presupuestoInicial", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "presupuestoInicial", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_presupuestoActual", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "presupuestoActual", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_presupuestoActual", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "presupuestoActual", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_cambios", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cambios", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_cambios", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cambios", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_codCliente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "codCliente", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_codCliente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "codCliente", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_terminado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "terminado", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_terminado", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "terminado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codigo", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -1147,7 +1188,7 @@ SELECT codigo, descripcion, fechaInicio, fechaFin, estado, presupuestoInicial, p
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT codigo, descripcion, fechaInicio, fechaFin, estado, presupuestoInicial, pr" +
-                "esupuestoActual, cambios, codCliente FROM dbo.Proyectos";
+                "esupuestoActual, cambios, codCliente, terminado FROM dbo.Proyectos";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1155,7 +1196,7 @@ SELECT codigo, descripcion, fechaInicio, fechaFin, estado, presupuestoInicial, p
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(baseDatosDataSet1.ProyectosDataTable dataTable) {
+        public virtual int Fill(baseDatosDataSet.ProyectosDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1168,9 +1209,9 @@ SELECT codigo, descripcion, fechaInicio, fechaFin, estado, presupuestoInicial, p
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual baseDatosDataSet1.ProyectosDataTable GetData() {
+        public virtual baseDatosDataSet.ProyectosDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            baseDatosDataSet1.ProyectosDataTable dataTable = new baseDatosDataSet1.ProyectosDataTable();
+            baseDatosDataSet.ProyectosDataTable dataTable = new baseDatosDataSet.ProyectosDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1178,14 +1219,14 @@ SELECT codigo, descripcion, fechaInicio, fechaFin, estado, presupuestoInicial, p
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(baseDatosDataSet1.ProyectosDataTable dataTable) {
+        public virtual int Update(baseDatosDataSet.ProyectosDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(baseDatosDataSet1 dataSet) {
+        public virtual int Update(baseDatosDataSet dataSet) {
             return this.Adapter.Update(dataSet, "Proyectos");
         }
         
@@ -1208,7 +1249,7 @@ SELECT codigo, descripcion, fechaInicio, fechaFin, estado, presupuestoInicial, p
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_codigo, string Original_descripcion, string Original_fechaInicio, string Original_estado, global::System.Nullable<double> Original_presupuestoInicial, global::System.Nullable<double> Original_presupuestoActual, string Original_cambios, global::System.Nullable<int> Original_codCliente) {
+        public virtual int Delete(int Original_codigo, string Original_descripcion, string Original_fechaInicio, global::System.Nullable<double> Original_presupuestoInicial, global::System.Nullable<double> Original_presupuestoActual, global::System.Nullable<int> Original_codCliente, global::System.Nullable<bool> Original_terminado) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_codigo));
             if ((Original_descripcion == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -1226,45 +1267,37 @@ SELECT codigo, descripcion, fechaInicio, fechaFin, estado, presupuestoInicial, p
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_fechaInicio));
             }
-            if ((Original_estado == null)) {
+            if ((Original_presupuestoInicial.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((double)(Original_presupuestoInicial.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_estado));
-            }
-            if ((Original_presupuestoInicial.HasValue == true)) {
+            if ((Original_presupuestoActual.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((double)(Original_presupuestoInicial.Value));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((double)(Original_presupuestoActual.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((Original_presupuestoActual.HasValue == true)) {
+            if ((Original_codCliente.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((double)(Original_presupuestoActual.Value));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(Original_codCliente.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            if ((Original_cambios == null)) {
+            if ((Original_terminado.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((bool)(Original_terminado.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_cambios));
-            }
-            if ((Original_codCliente.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((int)(Original_codCliente.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1286,7 +1319,7 @@ SELECT codigo, descripcion, fechaInicio, fechaFin, estado, presupuestoInicial, p
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string descripcion, string fechaInicio, string fechaFin, string estado, global::System.Nullable<double> presupuestoInicial, global::System.Nullable<double> presupuestoActual, string cambios, global::System.Nullable<int> codCliente) {
+        public virtual int Insert(string descripcion, string fechaInicio, string fechaFin, string estado, global::System.Nullable<double> presupuestoInicial, global::System.Nullable<double> presupuestoActual, string cambios, global::System.Nullable<int> codCliente, global::System.Nullable<bool> terminado) {
             if ((descripcion == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -1335,6 +1368,12 @@ SELECT codigo, descripcion, fechaInicio, fechaFin, estado, presupuestoInicial, p
             else {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
+            if ((terminado.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((bool)(terminado.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1364,14 +1403,14 @@ SELECT codigo, descripcion, fechaInicio, fechaFin, estado, presupuestoInicial, p
                     global::System.Nullable<double> presupuestoActual, 
                     string cambios, 
                     global::System.Nullable<int> codCliente, 
+                    global::System.Nullable<bool> terminado, 
                     int Original_codigo, 
                     string Original_descripcion, 
                     string Original_fechaInicio, 
-                    string Original_estado, 
                     global::System.Nullable<double> Original_presupuestoInicial, 
                     global::System.Nullable<double> Original_presupuestoActual, 
-                    string Original_cambios, 
                     global::System.Nullable<int> Original_codCliente, 
+                    global::System.Nullable<bool> Original_terminado, 
                     int codigo) {
             if ((descripcion == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -1421,64 +1460,62 @@ SELECT codigo, descripcion, fechaInicio, fechaFin, estado, presupuestoInicial, p
             else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_codigo));
-            if ((Original_descripcion == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            if ((terminado.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((bool)(terminado.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_descripcion));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_codigo));
+            if ((Original_descripcion == null)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_descripcion));
             }
             if ((Original_fechaInicio == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_fechaInicio));
-            }
-            if ((Original_estado == null)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_estado));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_fechaInicio));
             }
             if ((Original_presupuestoInicial.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((double)(Original_presupuestoInicial.Value));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((double)(Original_presupuestoInicial.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             if ((Original_presupuestoActual.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((double)(Original_presupuestoActual.Value));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((double)(Original_presupuestoActual.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
-            if ((Original_cambios == null)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_cambios));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
             if ((Original_codCliente.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Original_codCliente.Value));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_codCliente.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[23].Value = ((int)(codigo));
+            if ((Original_terminado.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((bool)(Original_terminado.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(codigo));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1508,15 +1545,15 @@ SELECT codigo, descripcion, fechaInicio, fechaFin, estado, presupuestoInicial, p
                     global::System.Nullable<double> presupuestoActual, 
                     string cambios, 
                     global::System.Nullable<int> codCliente, 
+                    global::System.Nullable<bool> terminado, 
                     int Original_codigo, 
                     string Original_descripcion, 
                     string Original_fechaInicio, 
-                    string Original_estado, 
                     global::System.Nullable<double> Original_presupuestoInicial, 
                     global::System.Nullable<double> Original_presupuestoActual, 
-                    string Original_cambios, 
-                    global::System.Nullable<int> Original_codCliente) {
-            return this.Update(descripcion, fechaInicio, fechaFin, estado, presupuestoInicial, presupuestoActual, cambios, codCliente, Original_codigo, Original_descripcion, Original_fechaInicio, Original_estado, Original_presupuestoInicial, Original_presupuestoActual, Original_cambios, Original_codCliente, Original_codigo);
+                    global::System.Nullable<int> Original_codCliente, 
+                    global::System.Nullable<bool> Original_terminado) {
+            return this.Update(descripcion, fechaInicio, fechaFin, estado, presupuestoInicial, presupuestoActual, cambios, codCliente, terminado, Original_codigo, Original_descripcion, Original_fechaInicio, Original_presupuestoInicial, Original_presupuestoActual, Original_codCliente, Original_terminado, Original_codigo);
         }
     }
     
@@ -1611,7 +1648,7 @@ SELECT codigo, descripcion, fechaInicio, fechaFin, estado, presupuestoInicial, p
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateUpdatedRows(baseDatosDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(baseDatosDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._proyectosTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Proyectos.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -1630,7 +1667,7 @@ SELECT codigo, descripcion, fechaInicio, fechaFin, estado, presupuestoInicial, p
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateInsertedRows(baseDatosDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(baseDatosDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._proyectosTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Proyectos.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -1648,7 +1685,7 @@ SELECT codigo, descripcion, fechaInicio, fechaFin, estado, presupuestoInicial, p
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateDeletedRows(baseDatosDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(baseDatosDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._proyectosTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Proyectos.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -1690,7 +1727,7 @@ SELECT codigo, descripcion, fechaInicio, fechaFin, estado, presupuestoInicial, p
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public virtual int UpdateAll(baseDatosDataSet1 dataSet) {
+        public virtual int UpdateAll(baseDatosDataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

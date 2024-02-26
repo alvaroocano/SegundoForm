@@ -153,6 +153,8 @@ namespace SegundoForm
                 (splitContainer1.Panel2.Width - pictureBox2.Width) / 2,
                 (splitContainer1.Panel2.Height - pictureBox2.Height) / 2
             );
+
+
         }
     }
 }
