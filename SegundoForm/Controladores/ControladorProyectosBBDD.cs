@@ -13,7 +13,7 @@ namespace SegundoForm.Controladores
 {
     internal class ControladorProyectosBBDD
     {
-        private string construirCadenaConexión()
+        public string construirCadenaConexión()
         {
             // Directorio del archivo de base de datos relativo al directorio de ejecución
             string databaseFileName = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\BaseDatos.mdf"));
@@ -51,7 +51,7 @@ namespace SegundoForm.Controladores
                 {
                     // Agregar parámetros y sus valores
                     // No se añade a la inserción el campo código proyecto porque es autonumérico, aunque se puede configurar para poder
-                // insertarlo a la fuerza.
+                    // insertarlo a la fuerza.
                     command.Parameters.AddWithValue("@Descripcion", descripcion);
                     command.Parameters.AddWithValue("@FechaInicio", fechaInicio);
                     command.Parameters.AddWithValue("@FechaFin", fechaFin);
@@ -65,7 +65,7 @@ namespace SegundoForm.Controladores
                     {
                         // Ejecutar la consulta de inserción
                         int registrosAfectados = command.ExecuteNonQuery();
-                        MessageBox.Show($"Se insertó correctamente el registro. Registros afectados: { registrosAfectados}");
+                        MessageBox.Show($"Se insertó correctamente el registro. Registros afectados: {registrosAfectados}");
                     }
                     catch (Exception ex)
                     {
@@ -76,30 +76,50 @@ namespace SegundoForm.Controladores
 
         }
 
-        public DataTable obtenerProyectos()
+        public void CargarDatosEnDataGridView(DataGridView dataGridView, string proyectoSeleccionado)
         {
-            DataTable dtProyectos = new DataTable();
-
-            // Cadena de conexión a la base de datos
             string connectionString = construirCadenaConexión();
-            // Query para seleccionar todos los registros de la tabla Proyectos
-            string query = "SELECT * FROM Proyectos";
+            string query;
 
-            // Crear la conexión
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            if (proyectoSeleccionado == "Todos")
             {
-                // Abrir la conexión
-                connection.Open();
-                // Crear un adaptador de datos y ejecutar la consulta
-                using (SqlDataAdapter adapter = new SqlDataAdapter(query, connection))
-                {
-                    // Llenar el DataTable con los resultados de la consulta
-                    adapter.Fill(dtProyectos);
-                }
+                query = "SELECT descripcion FROM Proyectos";
+            }
+            else
+            {
+                query = $"SELECT descripcion FROM Proyectos WHERE descripcion = '{proyectoSeleccionado}'";
             }
 
-            return dtProyectos;
+            try
+            {
+                // Crear un DataTable para almacenar los datos
+                DataTable dataTable = new DataTable();
+
+                // Establecer la conexión y ejecutar la consulta
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        // Crear un SqlDataAdapter para obtener los datos de la consulta
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            // Llenar el DataTable con los datos obtenidos
+                            adapter.Fill(dataTable);
+                        }
+                    }
+                }
+
+                // Asignar el DataTable como origen de datos del DataGridView
+                dataGridView.DataSource = dataTable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar datos: {ex.Message}\n{ex.StackTrace}");
+            }
         }
+
+
 
         public void eliminarProyectosSeleccionados(DataGridView dataGridView)
         {
@@ -146,7 +166,37 @@ namespace SegundoForm.Controladores
             }
         }
 
+        public void CargarUsuariosEnComboBox(ComboBox comboBox)
+        {
+            string connectionString = construirCadenaConexión();
+            string query = "SELECT descripcion FROM Proyectos";
 
+            // Limpiar ComboBox
+            comboBox.Items.Clear();
+            comboBox.Items.Add("Todos"); // Agregar opción "Todos"
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                comboBox.Items.Add(reader["descripcion"].ToString());
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al cargar usuarios: {ex.Message}\n{ex.StackTrace}");
+                }
+            }
+        }
 
     }
 }

@@ -24,28 +24,9 @@ namespace SegundoForm.Vistas
 
         private void CargarProyectosBBDD_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'baseDatosDataSet.Proyectos' Puede moverla o quitarla según sea necesario.
-            this.proyectosTableAdapter.Fill(this.baseDatosDataSet.Proyectos);
-
-            DataTable dtProyectos = cpb.obtenerProyectos();
-
-            if (dtProyectos.Rows.Count > 0)
-            {
-                // Hay datos disponibles, enlaza el DataGridView con el DataTable
-                dataGridView1.DataSource = dtProyectos;
-            }
-            else
-            {
-                // No hay datos disponibles, muestra un mensaje informativo
-                Label lblMensaje = new Label();
-                lblMensaje.Text = "No hay datos disponibles.";
-                lblMensaje.TextAlign = ContentAlignment.MiddleCenter;
-                lblMensaje.AutoSize = false;
-                lblMensaje.Dock = DockStyle.Fill;
-                Controls.Add(lblMensaje);
-            }
-
-
+            cpb.CargarUsuariosEnComboBox(comboBox1);
+            comboBox1.SelectedIndex = 0;
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -53,6 +34,29 @@ namespace SegundoForm.Vistas
             cpb.eliminarProyectosSeleccionados(dataGridView1);
         }
 
-        
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cpb.CargarDatosEnDataGridView(dataGridView1, comboBox1.SelectedItem.ToString());
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            FrmImprimirBBDD frm = new FrmImprimirBBDD();
+            //Set the size, location, and name.
+            frm.ClientSize = new System.Drawing.Size(400,
+            300);
+            frm.Location = new System.Drawing.Point(29, 29);
+            frm.Name = "PrintPreviewDialog1";
+            frm.MinimumSize = new System.Drawing.Size(375, 250);
+            // Establece el documento a imprimir
+            frm.Document.DocumentName = "Previsualización";
+
+            // Muestra el printpreviewdialog
+            PrintPreviewDialog printPreviewDialog1 = new PrintPreviewDialog();
+            printPreviewDialog1.Document = frm.Document;
+
+            // Muestra el diálogo
+            printPreviewDialog1.ShowDialog();
+        }
     }
 }
